@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rg.IDao.SroomMapper">
+  <resultMap id="BaseResultMap" type="com.rg.Domain.Sroom">
+    <id column="Wnumber" jdbcType="VARCHAR" property="wnumber" />
+    <result column="Wplace" jdbcType="VARCHAR" property="wplace" />
+    <result column="Ename" jdbcType="VARCHAR" property="ename" />
+    <result column="Tnumber" jdbcType="VARCHAR" property="tnumber" />
+    <result column="Waddress" jdbcType="VARCHAR" property="waddress" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Wnumber, Wplace, Ename, Tnumber, Waddress
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sroom
+    where Wnumber = #{wnumber,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from sroom
+    where Wnumber = #{wnumber,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.rg.Domain.Sroom">
+    insert into sroom (Wnumber, Wplace, Ename, 
+      Tnumber, Waddress)
+    values (#{wnumber,jdbcType=VARCHAR}, #{wplace,jdbcType=VARCHAR}, #{ename,jdbcType=VARCHAR}, 
+      #{tnumber,jdbcType=VARCHAR}, #{waddress,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rg.Domain.Sroom">
+    insert into sroom
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="wnumber != null">
+        Wnumber,
+      </if>
+      <if test="wplace != null">
+        Wplace,
+      </if>
+      <if test="ename != null">
+        Ename,
+      </if>
+      <if test="tnumber != null">
+        Tnumber,
+      </if>
+      <if test="waddress != null">
+        Waddress,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="wnumber != null">
+        #{wnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="wplace != null">
+        #{wplace,jdbcType=VARCHAR},
+      </if>
+      <if test="ename != null">
+        #{ename,jdbcType=VARCHAR},
+      </if>
+      <if test="tnumber != null">
+        #{tnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="waddress != null">
+        #{waddress,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rg.Domain.Sroom">
+    update sroom
+    <set>
+      <if test="wplace != null">
+        Wplace = #{wplace,jdbcType=VARCHAR},
+      </if>
+      <if test="ename != null">
+        Ename = #{ename,jdbcType=VARCHAR},
+      </if>
+      <if test="tnumber != null">
+        Tnumber = #{tnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="waddress != null">
+        Waddress = #{waddress,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Wnumber = #{wnumber,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rg.Domain.Sroom">
+    update sroom
+    set Wplace = #{wplace,jdbcType=VARCHAR},
+      Ename = #{ename,jdbcType=VARCHAR},
+      Tnumber = #{tnumber,jdbcType=VARCHAR},
+      Waddress = #{waddress,jdbcType=VARCHAR}
+    where Wnumber = #{wnumber,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -15,7 +15,7 @@ import com.rg.Service.RequestService;
 /**
  * 
  * @author Zhou
- * 用于前后台发货部分交互调用
+ * 用于前后台销售部分交互调用
  * controller路径：logistics/SellController
  * 发起订单请求 tradeOrder        url="/tradeOrder"
  * 查看库存信息 checkInventory    url="/checkInventory"

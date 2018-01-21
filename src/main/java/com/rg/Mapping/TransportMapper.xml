@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rg.IDao.TransportMapper">
+  <resultMap id="BaseResultMap" type="com.rg.Domain.Transport">
+    <id column="Dnumber" jdbcType="VARCHAR" property="dnumber" />
+    <result column="Aonumber" jdbcType="VARCHAR" property="aonumber" />
+    <result column="Bnumber" jdbcType="VARCHAR" property="bnumber" />
+    <result column="Cname" jdbcType="VARCHAR" property="cname" />
+    <result column="Caddress" jdbcType="VARCHAR" property="caddress" />
+    <result column="Ctime" jdbcType="VARCHAR" property="ctime" />
+    <result column="Rtime" jdbcType="VARCHAR" property="rtime" />
+    <result column="Bname" jdbcType="VARCHAR" property="bname" />
+    <result column="Raddress" jdbcType="VARCHAR" property="raddress" />
+    <result column="Cqnumber" jdbcType="DOUBLE" property="cqnumber" />
+    <result column="Rqnumber" jdbcType="DOUBLE" property="rqnumber" />
+    <result column="Mqnumber" jdbcType="DOUBLE" property="mqnumber" />
+    <result column="Tway" jdbcType="VARCHAR" property="tway" />
+    <result column="Tman" jdbcType="VARCHAR" property="tman" />
+    <result column="Dman" jdbcType="VARCHAR" property="dman" />
+    <result column="Dtnumber" jdbcType="VARCHAR" property="dtnumber" />
+    <result column="Ctnumber" jdbcType="VARCHAR" property="ctnumber" />
+    <result column="Rtnumber" jdbcType="VARCHAR" property="rtnumber" />
+    <result column="Tmunber" jdbcType="VARCHAR" property="tmunber" />
+    <result column="OEmployee" jdbcType="VARCHAR" property="oemployee" />
+    <result column="Eid" jdbcType="VARCHAR" property="eid" />
+    <result column="Dprice" jdbcType="DOUBLE" property="dprice" />
+    <result column="Adprice" jdbcType="DOUBLE" property="adprice" />
+    <result column="Uprice" jdbcType="DOUBLE" property="uprice" />
+    <result column="Uaprice" jdbcType="DOUBLE" property="uaprice" />
+    <result column="IsReci" jdbcType="VARCHAR" property="isreci" />
+    <result column="ICOD" jdbcType="VARCHAR" property="icod" />
+    <result column="IROD" jdbcType="VARCHAR" property="irod" />
+    <result column="Ename" jdbcType="VARCHAR" property="ename" />
+    <result column="Etime" jdbcType="VARCHAR" property="etime" />
+    <result column="Eunit" jdbcType="VARCHAR" property="eunit" />
+    <result column="Company" jdbcType="VARCHAR" property="company" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Dnumber, Aonumber, Bnumber, Cname, Caddress, Ctime, Rtime, Bname, Raddress, Cqnumber, 
+    Rqnumber, Mqnumber, Tway, Tman, Dman, Dtnumber, Ctnumber, Rtnumber, Tmunber, OEmployee, 
+    Eid, Dprice, Adprice, Uprice, Uaprice, IsReci, ICOD, IROD, Ename, Etime, Eunit, Company
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from transport
+    where Dnumber = #{dnumber,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from transport
+    where Dnumber = #{dnumber,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.rg.Domain.Transport">
+    insert into transport (Dnumber, Aonumber, Bnumber, 
+      Cname, Caddress, Ctime, 
+      Rtime, Bname, Raddress, 
+      Cqnumber, Rqnumber, Mqnumber, 
+      Tway, Tman, Dman, Dtnumber, 
+      Ctnumber, Rtnumber, Tmunber, 
+      OEmployee, Eid, Dprice, 
+      Adprice, Uprice, Uaprice, 
+      IsReci, ICOD, IROD, 
+      Ename, Etime, Eunit, 
+      Company)
+    values (#{dnumber,jdbcType=VARCHAR}, #{aonumber,jdbcType=VARCHAR}, #{bnumber,jdbcType=VARCHAR}, 
+      #{cname,jdbcType=VARCHAR}, #{caddress,jdbcType=VARCHAR}, #{ctime,jdbcType=VARCHAR}, 
+      #{rtime,jdbcType=VARCHAR}, #{bname,jdbcType=VARCHAR}, #{raddress,jdbcType=VARCHAR}, 
+      #{cqnumber,jdbcType=DOUBLE}, #{rqnumber,jdbcType=DOUBLE}, #{mqnumber,jdbcType=DOUBLE}, 
+      #{tway,jdbcType=VARCHAR}, #{tman,jdbcType=VARCHAR}, #{dman,jdbcType=VARCHAR}, #{dtnumber,jdbcType=VARCHAR}, 
+      #{ctnumber,jdbcType=VARCHAR}, #{rtnumber,jdbcType=VARCHAR}, #{tmunber,jdbcType=VARCHAR}, 
+      #{oemployee,jdbcType=VARCHAR}, #{eid,jdbcType=VARCHAR}, #{dprice,jdbcType=DOUBLE}, 
+      #{adprice,jdbcType=DOUBLE}, #{uprice,jdbcType=DOUBLE}, #{uaprice,jdbcType=DOUBLE}, 
+      #{isreci,jdbcType=VARCHAR}, #{icod,jdbcType=VARCHAR}, #{irod,jdbcType=VARCHAR}, 
+      #{ename,jdbcType=VARCHAR}, #{etime,jdbcType=VARCHAR}, #{eunit,jdbcType=VARCHAR}, 
+      #{company,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rg.Domain.Transport">
+    insert into transport
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="dnumber != null">
+        Dnumber,
+      </if>
+      <if test="aonumber != null">
+        Aonumber,
+      </if>
+      <if test="bnumber != null">
+        Bnumber,
+      </if>
+      <if test="cname != null">
+        Cname,
+      </if>
+      <if test="caddress != null">
+        Caddress,
+      </if>
+      <if test="ctime != null">
+        Ctime,
+      </if>
+      <if test="rtime != null">
+        Rtime,
+      </if>
+      <if test="bname != null">
+        Bname,
+      </if>
+      <if test="raddress != null">
+        Raddress,
+      </if>
+      <if test="cqnumber != null">
+        Cqnumber,
+      </if>
+      <if test="rqnumber != null">
+        Rqnumber,
+      </if>
+      <if test="mqnumber != null">
+        Mqnumber,
+      </if>
+      <if test="tway != null">
+        Tway,
+      </if>
+      <if test="tman != null">
+        Tman,
+      </if>
+      <if test="dman != null">
+        Dman,
+      </if>
+      <if test="dtnumber != null">
+        Dtnumber,
+      </if>
+      <if test="ctnumber != null">
+        Ctnumber,
+      </if>
+      <if test="rtnumber != null">
+        Rtnumber,
+      </if>
+      <if test="tmunber != null">
+        Tmunber,
+      </if>
+      <if test="oemployee != null">
+        OEmployee,
+      </if>
+      <if test="eid != null">
+        Eid,
+      </if>
+      <if test="dprice != null">
+        Dprice,
+      </if>
+      <if test="adprice != null">
+        Adprice,
+      </if>
+      <if test="uprice != null">
+        Uprice,
+      </if>
+      <if test="uaprice != null">
+        Uaprice,
+      </if>
+      <if test="isreci != null">
+        IsReci,
+      </if>
+      <if test="icod != null">
+        ICOD,
+      </if>
+      <if test="irod != null">
+        IROD,
+      </if>
+      <if test="ename != null">
+        Ename,
+      </if>
+      <if test="etime != null">
+        Etime,
+      </if>
+      <if test="eunit != null">
+        Eunit,
+      </if>
+      <if test="company != null">
+        Company,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="dnumber != null">
+        #{dnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="aonumber != null">
+        #{aonumber,jdbcType=VARCHAR},
+      </if>
+      <if test="bnumber != null">
+        #{bnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="cname != null">
+        #{cname,jdbcType=VARCHAR},
+      </if>
+      <if test="caddress != null">
+        #{caddress,jdbcType=VARCHAR},
+      </if>
+      <if test="ctime != null">
+        #{ctime,jdbcType=VARCHAR},
+      </if>
+      <if test="rtime != null">
+        #{rtime,jdbcType=VARCHAR},
+      </if>
+      <if test="bname != null">
+        #{bname,jdbcType=VARCHAR},
+      </if>
+      <if test="raddress != null">
+        #{raddress,jdbcType=VARCHAR},
+      </if>
+      <if test="cqnumber != null">
+        #{cqnumber,jdbcType=DOUBLE},
+      </if>
+      <if test="rqnumber != null">
+        #{rqnumber,jdbcType=DOUBLE},
+      </if>
+      <if test="mqnumber != null">
+        #{mqnumber,jdbcType=DOUBLE},
+      </if>
+      <if test="tway != null">
+        #{tway,jdbcType=VARCHAR},
+      </if>
+      <if test="tman != null">
+        #{tman,jdbcType=VARCHAR},
+      </if>
+      <if test="dman != null">
+        #{dman,jdbcType=VARCHAR},
+      </if>
+      <if test="dtnumber != null">
+        #{dtnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="ctnumber != null">
+        #{ctnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="rtnumber != null">
+        #{rtnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="tmunber != null">
+        #{tmunber,jdbcType=VARCHAR},
+      </if>
+      <if test="oemployee != null">
+        #{oemployee,jdbcType=VARCHAR},
+      </if>
+      <if test="eid != null">
+        #{eid,jdbcType=VARCHAR},
+      </if>
+      <if test="dprice != null">
+        #{dprice,jdbcType=DOUBLE},
+      </if>
+      <if test="adprice != null">
+        #{adprice,jdbcType=DOUBLE},
+      </if>
+      <if test="uprice != null">
+        #{uprice,jdbcType=DOUBLE},
+      </if>
+      <if test="uaprice != null">
+        #{uaprice,jdbcType=DOUBLE},
+      </if>
+      <if test="isreci != null">
+        #{isreci,jdbcType=VARCHAR},
+      </if>
+      <if test="icod != null">
+        #{icod,jdbcType=VARCHAR},
+      </if>
+      <if test="irod != null">
+        #{irod,jdbcType=VARCHAR},
+      </if>
+      <if test="ename != null">
+        #{ename,jdbcType=VARCHAR},
+      </if>
+      <if test="etime != null">
+        #{etime,jdbcType=VARCHAR},
+      </if>
+      <if test="eunit != null">
+        #{eunit,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        #{company,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rg.Domain.Transport">
+    update transport
+    <set>
+      <if test="aonumber != null">
+        Aonumber = #{aonumber,jdbcType=VARCHAR},
+      </if>
+      <if test="bnumber != null">
+        Bnumber = #{bnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="cname != null">
+        Cname = #{cname,jdbcType=VARCHAR},
+      </if>
+      <if test="caddress != null">
+        Caddress = #{caddress,jdbcType=VARCHAR},
+      </if>
+      <if test="ctime != null">
+        Ctime = #{ctime,jdbcType=VARCHAR},
+      </if>
+      <if test="rtime != null">
+        Rtime = #{rtime,jdbcType=VARCHAR},
+      </if>
+      <if test="bname != null">
+        Bname = #{bname,jdbcType=VARCHAR},
+      </if>
+      <if test="raddress != null">
+        Raddress = #{raddress,jdbcType=VARCHAR},
+      </if>
+      <if test="cqnumber != null">
+        Cqnumber = #{cqnumber,jdbcType=DOUBLE},
+      </if>
+      <if test="rqnumber != null">
+        Rqnumber = #{rqnumber,jdbcType=DOUBLE},
+      </if>
+      <if test="mqnumber != null">
+        Mqnumber = #{mqnumber,jdbcType=DOUBLE},
+      </if>
+      <if test="tway != null">
+        Tway = #{tway,jdbcType=VARCHAR},
+      </if>
+      <if test="tman != null">
+        Tman = #{tman,jdbcType=VARCHAR},
+      </if>
+      <if test="dman != null">
+        Dman = #{dman,jdbcType=VARCHAR},
+      </if>
+      <if test="dtnumber != null">
+        Dtnumber = #{dtnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="ctnumber != null">
+        Ctnumber = #{ctnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="rtnumber != null">
+        Rtnumber = #{rtnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="tmunber != null">
+        Tmunber = #{tmunber,jdbcType=VARCHAR},
+      </if>
+      <if test="oemployee != null">
+        OEmployee = #{oemployee,jdbcType=VARCHAR},
+      </if>
+      <if test="eid != null">
+        Eid = #{eid,jdbcType=VARCHAR},
+      </if>
+      <if test="dprice != null">
+        Dprice = #{dprice,jdbcType=DOUBLE},
+      </if>
+      <if test="adprice != null">
+        Adprice = #{adprice,jdbcType=DOUBLE},
+      </if>
+      <if test="uprice != null">
+        Uprice = #{uprice,jdbcType=DOUBLE},
+      </if>
+      <if test="uaprice != null">
+        Uaprice = #{uaprice,jdbcType=DOUBLE},
+      </if>
+      <if test="isreci != null">
+        IsReci = #{isreci,jdbcType=VARCHAR},
+      </if>
+      <if test="icod != null">
+        ICOD = #{icod,jdbcType=VARCHAR},
+      </if>
+      <if test="irod != null">
+        IROD = #{irod,jdbcType=VARCHAR},
+      </if>
+      <if test="ename != null">
+        Ename = #{ename,jdbcType=VARCHAR},
+      </if>
+      <if test="etime != null">
+        Etime = #{etime,jdbcType=VARCHAR},
+      </if>
+      <if test="eunit != null">
+        Eunit = #{eunit,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        Company = #{company,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Dnumber = #{dnumber,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rg.Domain.Transport">
+    update transport
+    set Aonumber = #{aonumber,jdbcType=VARCHAR},
+      Bnumber = #{bnumber,jdbcType=VARCHAR},
+      Cname = #{cname,jdbcType=VARCHAR},
+      Caddress = #{caddress,jdbcType=VARCHAR},
+      Ctime = #{ctime,jdbcType=VARCHAR},
+      Rtime = #{rtime,jdbcType=VARCHAR},
+      Bname = #{bname,jdbcType=VARCHAR},
+      Raddress = #{raddress,jdbcType=VARCHAR},
+      Cqnumber = #{cqnumber,jdbcType=DOUBLE},
+      Rqnumber = #{rqnumber,jdbcType=DOUBLE},
+      Mqnumber = #{mqnumber,jdbcType=DOUBLE},
+      Tway = #{tway,jdbcType=VARCHAR},
+      Tman = #{tman,jdbcType=VARCHAR},
+      Dman = #{dman,jdbcType=VARCHAR},
+      Dtnumber = #{dtnumber,jdbcType=VARCHAR},
+      Ctnumber = #{ctnumber,jdbcType=VARCHAR},
+      Rtnumber = #{rtnumber,jdbcType=VARCHAR},
+      Tmunber = #{tmunber,jdbcType=VARCHAR},
+      OEmployee = #{oemployee,jdbcType=VARCHAR},
+      Eid = #{eid,jdbcType=VARCHAR},
+      Dprice = #{dprice,jdbcType=DOUBLE},
+      Adprice = #{adprice,jdbcType=DOUBLE},
+      Uprice = #{uprice,jdbcType=DOUBLE},
+      Uaprice = #{uaprice,jdbcType=DOUBLE},
+      IsReci = #{isreci,jdbcType=VARCHAR},
+      ICOD = #{icod,jdbcType=VARCHAR},
+      IROD = #{irod,jdbcType=VARCHAR},
+      Ename = #{ename,jdbcType=VARCHAR},
+      Etime = #{etime,jdbcType=VARCHAR},
+      Eunit = #{eunit,jdbcType=VARCHAR},
+      Company = #{company,jdbcType=VARCHAR}
+    where Dnumber = #{dnumber,jdbcType=VARCHAR}
+  </update>
+</mapper>

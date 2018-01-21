@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rg.IDao.FsettleMapper">
+  <resultMap id="BaseResultMap" type="com.rg.Domain.Fsettle">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="Bnumber" jdbcType="VARCHAR" property="bnumber" />
+    <result column="Dnumber" jdbcType="VARCHAR" property="dnumber" />
+    <result column="Tman" jdbcType="VARCHAR" property="tman" />
+    <result column="Spay" jdbcType="DOUBLE" property="spay" />
+    <result column="Rpay" jdbcType="DOUBLE" property="rpay" />
+    <result column="Doprice" jdbcType="DOUBLE" property="doprice" />
+    <result column="Uoprice" jdbcType="DOUBLE" property="uoprice" />
+    <result column="Icod" jdbcType="VARCHAR" property="icod" />
+    <result column="Company" jdbcType="VARCHAR" property="company" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, Bnumber, Dnumber, Tman, Spay, Rpay, Doprice, Uoprice, Icod, Company
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from fsettle
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from fsettle
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.rg.Domain.Fsettle">
+    insert into fsettle (Id, Bnumber, Dnumber, 
+      Tman, Spay, Rpay, Doprice, 
+      Uoprice, Icod, Company
+      )
+    values (#{id,jdbcType=INTEGER}, #{bnumber,jdbcType=VARCHAR}, #{dnumber,jdbcType=VARCHAR}, 
+      #{tman,jdbcType=VARCHAR}, #{spay,jdbcType=DOUBLE}, #{rpay,jdbcType=DOUBLE}, #{doprice,jdbcType=DOUBLE}, 
+      #{uoprice,jdbcType=DOUBLE}, #{icod,jdbcType=VARCHAR}, #{company,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.rg.Domain.Fsettle">
+    insert into fsettle
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="bnumber != null">
+        Bnumber,
+      </if>
+      <if test="dnumber != null">
+        Dnumber,
+      </if>
+      <if test="tman != null">
+        Tman,
+      </if>
+      <if test="spay != null">
+        Spay,
+      </if>
+      <if test="rpay != null">
+        Rpay,
+      </if>
+      <if test="doprice != null">
+        Doprice,
+      </if>
+      <if test="uoprice != null">
+        Uoprice,
+      </if>
+      <if test="icod != null">
+        Icod,
+      </if>
+      <if test="company != null">
+        Company,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="bnumber != null">
+        #{bnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="dnumber != null">
+        #{dnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="tman != null">
+        #{tman,jdbcType=VARCHAR},
+      </if>
+      <if test="spay != null">
+        #{spay,jdbcType=DOUBLE},
+      </if>
+      <if test="rpay != null">
+        #{rpay,jdbcType=DOUBLE},
+      </if>
+      <if test="doprice != null">
+        #{doprice,jdbcType=DOUBLE},
+      </if>
+      <if test="uoprice != null">
+        #{uoprice,jdbcType=DOUBLE},
+      </if>
+      <if test="icod != null">
+        #{icod,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        #{company,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rg.Domain.Fsettle">
+    update fsettle
+    <set>
+      <if test="bnumber != null">
+        Bnumber = #{bnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="dnumber != null">
+        Dnumber = #{dnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="tman != null">
+        Tman = #{tman,jdbcType=VARCHAR},
+      </if>
+      <if test="spay != null">
+        Spay = #{spay,jdbcType=DOUBLE},
+      </if>
+      <if test="rpay != null">
+        Rpay = #{rpay,jdbcType=DOUBLE},
+      </if>
+      <if test="doprice != null">
+        Doprice = #{doprice,jdbcType=DOUBLE},
+      </if>
+      <if test="uoprice != null">
+        Uoprice = #{uoprice,jdbcType=DOUBLE},
+      </if>
+      <if test="icod != null">
+        Icod = #{icod,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        Company = #{company,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rg.Domain.Fsettle">
+    update fsettle
+    set Bnumber = #{bnumber,jdbcType=VARCHAR},
+      Dnumber = #{dnumber,jdbcType=VARCHAR},
+      Tman = #{tman,jdbcType=VARCHAR},
+      Spay = #{spay,jdbcType=DOUBLE},
+      Rpay = #{rpay,jdbcType=DOUBLE},
+      Doprice = #{doprice,jdbcType=DOUBLE},
+      Uoprice = #{uoprice,jdbcType=DOUBLE},
+      Icod = #{icod,jdbcType=VARCHAR},
+      Company = #{company,jdbcType=VARCHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

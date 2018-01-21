@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rg.IDao.BorderMapper">
+  <resultMap id="BaseResultMap" type="com.rg.Domain.Border">
+    <id column="Bnumber" jdbcType="VARCHAR" property="bnumber" />
+    <result column="Bname" jdbcType="VARCHAR" property="bname" />
+    <result column="Baddress" jdbcType="VARCHAR" property="baddress" />
+    <result column="Spec" jdbcType="VARCHAR" property="spec" />
+    <result column="Gbrand" jdbcType="VARCHAR" property="gbrand" />
+    <result column="Packing" jdbcType="VARCHAR" property="packing" />
+    <result column="Gtype" jdbcType="VARCHAR" property="gtype" />
+    <result column="Gnumber" jdbcType="DOUBLE" property="gnumber" />
+    <result column="Rnumber" jdbcType="DOUBLE" property="rnumber" />
+    <result column="Etime" jdbcType="VARCHAR" property="etime" />
+    <result column="IsOver" jdbcType="VARCHAR" property="isover" />
+    <result column="Rtnumber" jdbcType="VARCHAR" property="rtnumber" />
+    <result column="unit" jdbcType="VARCHAR" property="unit" />
+    <result column="Rprice" jdbcType="DOUBLE" property="rprice" />
+    <result column="price" jdbcType="DOUBLE" property="price" />
+    <result column="Company" jdbcType="VARCHAR" property="company" />
+    <result column="IsApprove" jdbcType="VARCHAR" property="isapprove" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Bnumber, Bname, Baddress, Spec, Gbrand, Packing, Gtype, Gnumber, Rnumber, Etime, 
+    IsOver, Rtnumber, unit, Rprice, price, Company, IsApprove
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from border
+    where Bnumber = #{bnumber,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from border
+    where Bnumber = #{bnumber,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.rg.Domain.Border">
+    insert into border (Bnumber, Bname, Baddress, 
+      Spec, Gbrand, Packing, 
+      Gtype, Gnumber, Rnumber, 
+      Etime, IsOver, Rtnumber, 
+      unit, Rprice, price, 
+      Company, IsApprove)
+    values (#{bnumber,jdbcType=VARCHAR}, #{bname,jdbcType=VARCHAR}, #{baddress,jdbcType=VARCHAR}, 
+      #{spec,jdbcType=VARCHAR}, #{gbrand,jdbcType=VARCHAR}, #{packing,jdbcType=VARCHAR}, 
+      #{gtype,jdbcType=VARCHAR}, #{gnumber,jdbcType=DOUBLE}, #{rnumber,jdbcType=DOUBLE}, 
+      #{etime,jdbcType=VARCHAR}, #{isover,jdbcType=VARCHAR}, #{rtnumber,jdbcType=VARCHAR}, 
+      #{unit,jdbcType=VARCHAR}, #{rprice,jdbcType=DOUBLE}, #{price,jdbcType=DOUBLE}, 
+      #{company,jdbcType=VARCHAR}, #{isapprove,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rg.Domain.Border">
+    insert into border
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="bnumber != null">
+        Bnumber,
+      </if>
+      <if test="bname != null">
+        Bname,
+      </if>
+      <if test="baddress != null">
+        Baddress,
+      </if>
+      <if test="spec != null">
+        Spec,
+      </if>
+      <if test="gbrand != null">
+        Gbrand,
+      </if>
+      <if test="packing != null">
+        Packing,
+      </if>
+      <if test="gtype != null">
+        Gtype,
+      </if>
+      <if test="gnumber != null">
+        Gnumber,
+      </if>
+      <if test="rnumber != null">
+        Rnumber,
+      </if>
+      <if test="etime != null">
+        Etime,
+      </if>
+      <if test="isover != null">
+        IsOver,
+      </if>
+      <if test="rtnumber != null">
+        Rtnumber,
+      </if>
+      <if test="unit != null">
+        unit,
+      </if>
+      <if test="rprice != null">
+        Rprice,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="company != null">
+        Company,
+      </if>
+      <if test="isapprove != null">
+        IsApprove,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="bnumber != null">
+        #{bnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="bname != null">
+        #{bname,jdbcType=VARCHAR},
+      </if>
+      <if test="baddress != null">
+        #{baddress,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null">
+        #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="gbrand != null">
+        #{gbrand,jdbcType=VARCHAR},
+      </if>
+      <if test="packing != null">
+        #{packing,jdbcType=VARCHAR},
+      </if>
+      <if test="gtype != null">
+        #{gtype,jdbcType=VARCHAR},
+      </if>
+      <if test="gnumber != null">
+        #{gnumber,jdbcType=DOUBLE},
+      </if>
+      <if test="rnumber != null">
+        #{rnumber,jdbcType=DOUBLE},
+      </if>
+      <if test="etime != null">
+        #{etime,jdbcType=VARCHAR},
+      </if>
+      <if test="isover != null">
+        #{isover,jdbcType=VARCHAR},
+      </if>
+      <if test="rtnumber != null">
+        #{rtnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null">
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="rprice != null">
+        #{rprice,jdbcType=DOUBLE},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="company != null">
+        #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="isapprove != null">
+        #{isapprove,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rg.Domain.Border">
+    update border
+    <set>
+      <if test="bname != null">
+        Bname = #{bname,jdbcType=VARCHAR},
+      </if>
+      <if test="baddress != null">
+        Baddress = #{baddress,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null">
+        Spec = #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="gbrand != null">
+        Gbrand = #{gbrand,jdbcType=VARCHAR},
+      </if>
+      <if test="packing != null">
+        Packing = #{packing,jdbcType=VARCHAR},
+      </if>
+      <if test="gtype != null">
+        Gtype = #{gtype,jdbcType=VARCHAR},
+      </if>
+      <if test="gnumber != null">
+        Gnumber = #{gnumber,jdbcType=DOUBLE},
+      </if>
+      <if test="rnumber != null">
+        Rnumber = #{rnumber,jdbcType=DOUBLE},
+      </if>
+      <if test="etime != null">
+        Etime = #{etime,jdbcType=VARCHAR},
+      </if>
+      <if test="isover != null">
+        IsOver = #{isover,jdbcType=VARCHAR},
+      </if>
+      <if test="rtnumber != null">
+        Rtnumber = #{rtnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null">
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="rprice != null">
+        Rprice = #{rprice,jdbcType=DOUBLE},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="company != null">
+        Company = #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="isapprove != null">
+        IsApprove = #{isapprove,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Bnumber = #{bnumber,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rg.Domain.Border">
+    update border
+    set Bname = #{bname,jdbcType=VARCHAR},
+      Baddress = #{baddress,jdbcType=VARCHAR},
+      Spec = #{spec,jdbcType=VARCHAR},
+      Gbrand = #{gbrand,jdbcType=VARCHAR},
+      Packing = #{packing,jdbcType=VARCHAR},
+      Gtype = #{gtype,jdbcType=VARCHAR},
+      Gnumber = #{gnumber,jdbcType=DOUBLE},
+      Rnumber = #{rnumber,jdbcType=DOUBLE},
+      Etime = #{etime,jdbcType=VARCHAR},
+      IsOver = #{isover,jdbcType=VARCHAR},
+      Rtnumber = #{rtnumber,jdbcType=VARCHAR},
+      unit = #{unit,jdbcType=VARCHAR},
+      Rprice = #{rprice,jdbcType=DOUBLE},
+      price = #{price,jdbcType=DOUBLE},
+      Company = #{company,jdbcType=VARCHAR},
+      IsApprove = #{isapprove,jdbcType=VARCHAR}
+    where Bnumber = #{bnumber,jdbcType=VARCHAR}
+  </update>
+</mapper>

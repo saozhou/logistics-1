@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rg.IDao.SrecordMapper">
+  <resultMap id="BaseResultMap" type="com.rg.Domain.Srecord">
+    <id column="Rid" jdbcType="VARCHAR" property="rid" />
+    <result column="Aid" jdbcType="VARCHAR" property="aid" />
+    <result column="Atype" jdbcType="VARCHAR" property="atype" />
+    <result column="Abrand" jdbcType="VARCHAR" property="abrand" />
+    <result column="Spec" jdbcType="VARCHAR" property="spec" />
+    <result column="Packing" jdbcType="VARCHAR" property="packing" />
+    <result column="amount" jdbcType="DOUBLE" property="amount" />
+    <result column="unit" jdbcType="VARCHAR" property="unit" />
+    <result column="Wnumber" jdbcType="VARCHAR" property="wnumber" />
+    <result column="Time" jdbcType="VARCHAR" property="time" />
+    <result column="Ename" jdbcType="VARCHAR" property="ename" />
+    <result column="price" jdbcType="DOUBLE" property="price" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Rid, Aid, Atype, Abrand, Spec, Packing, amount, unit, Wnumber, Time, Ename, price
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from srecord
+    where Rid = #{rid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from srecord
+    where Rid = #{rid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.rg.Domain.Srecord">
+    insert into srecord (Rid, Aid, Atype, 
+      Abrand, Spec, Packing, 
+      amount, unit, Wnumber, 
+      Time, Ename, price)
+    values (#{rid,jdbcType=VARCHAR}, #{aid,jdbcType=VARCHAR}, #{atype,jdbcType=VARCHAR}, 
+      #{abrand,jdbcType=VARCHAR}, #{spec,jdbcType=VARCHAR}, #{packing,jdbcType=VARCHAR}, 
+      #{amount,jdbcType=DOUBLE}, #{unit,jdbcType=VARCHAR}, #{wnumber,jdbcType=VARCHAR}, 
+      #{time,jdbcType=VARCHAR}, #{ename,jdbcType=VARCHAR}, #{price,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rg.Domain.Srecord">
+    insert into srecord
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="rid != null">
+        Rid,
+      </if>
+      <if test="aid != null">
+        Aid,
+      </if>
+      <if test="atype != null">
+        Atype,
+      </if>
+      <if test="abrand != null">
+        Abrand,
+      </if>
+      <if test="spec != null">
+        Spec,
+      </if>
+      <if test="packing != null">
+        Packing,
+      </if>
+      <if test="amount != null">
+        amount,
+      </if>
+      <if test="unit != null">
+        unit,
+      </if>
+      <if test="wnumber != null">
+        Wnumber,
+      </if>
+      <if test="time != null">
+        Time,
+      </if>
+      <if test="ename != null">
+        Ename,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="rid != null">
+        #{rid,jdbcType=VARCHAR},
+      </if>
+      <if test="aid != null">
+        #{aid,jdbcType=VARCHAR},
+      </if>
+      <if test="atype != null">
+        #{atype,jdbcType=VARCHAR},
+      </if>
+      <if test="abrand != null">
+        #{abrand,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null">
+        #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="packing != null">
+        #{packing,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=DOUBLE},
+      </if>
+      <if test="unit != null">
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="wnumber != null">
+        #{wnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="ename != null">
+        #{ename,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rg.Domain.Srecord">
+    update srecord
+    <set>
+      <if test="aid != null">
+        Aid = #{aid,jdbcType=VARCHAR},
+      </if>
+      <if test="atype != null">
+        Atype = #{atype,jdbcType=VARCHAR},
+      </if>
+      <if test="abrand != null">
+        Abrand = #{abrand,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null">
+        Spec = #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="packing != null">
+        Packing = #{packing,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null">
+        amount = #{amount,jdbcType=DOUBLE},
+      </if>
+      <if test="unit != null">
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="wnumber != null">
+        Wnumber = #{wnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        Time = #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="ename != null">
+        Ename = #{ename,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where Rid = #{rid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rg.Domain.Srecord">
+    update srecord
+    set Aid = #{aid,jdbcType=VARCHAR},
+      Atype = #{atype,jdbcType=VARCHAR},
+      Abrand = #{abrand,jdbcType=VARCHAR},
+      Spec = #{spec,jdbcType=VARCHAR},
+      Packing = #{packing,jdbcType=VARCHAR},
+      amount = #{amount,jdbcType=DOUBLE},
+      unit = #{unit,jdbcType=VARCHAR},
+      Wnumber = #{wnumber,jdbcType=VARCHAR},
+      Time = #{time,jdbcType=VARCHAR},
+      Ename = #{ename,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DOUBLE}
+    where Rid = #{rid,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rg.IDao.VmaintenMapper">
+  <resultMap id="BaseResultMap" type="com.rg.Domain.Vmainten">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="Vman" jdbcType="VARCHAR" property="vman" />
+    <result column="Time" jdbcType="VARCHAR" property="time" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="acount" jdbcType="DOUBLE" property="acount" />
+    <result column="number" jdbcType="DOUBLE" property="number" />
+    <result column="price" jdbcType="DOUBLE" property="price" />
+    <result column="Dnumber" jdbcType="VARCHAR" property="dnumber" />
+    <result column="IsCh" jdbcType="VARCHAR" property="isch" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="Company" jdbcType="VARCHAR" property="company" />
+    <result column="IsApprove" jdbcType="VARCHAR" property="isapprove" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, Vman, Time, type, acount, number, price, Dnumber, IsCh, url, Company, IsApprove
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from vmainten
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from vmainten
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.rg.Domain.Vmainten">
+    insert into vmainten (ID, Vman, Time, 
+      type, acount, number, 
+      price, Dnumber, IsCh, 
+      url, Company, IsApprove
+      )
+    values (#{id,jdbcType=INTEGER}, #{vman,jdbcType=VARCHAR}, #{time,jdbcType=VARCHAR}, 
+      #{type,jdbcType=VARCHAR}, #{acount,jdbcType=DOUBLE}, #{number,jdbcType=DOUBLE}, 
+      #{price,jdbcType=DOUBLE}, #{dnumber,jdbcType=VARCHAR}, #{isch,jdbcType=VARCHAR}, 
+      #{url,jdbcType=VARCHAR}, #{company,jdbcType=VARCHAR}, #{isapprove,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.rg.Domain.Vmainten">
+    insert into vmainten
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="vman != null">
+        Vman,
+      </if>
+      <if test="time != null">
+        Time,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="acount != null">
+        acount,
+      </if>
+      <if test="number != null">
+        number,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="dnumber != null">
+        Dnumber,
+      </if>
+      <if test="isch != null">
+        IsCh,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+      <if test="company != null">
+        Company,
+      </if>
+      <if test="isapprove != null">
+        IsApprove,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="vman != null">
+        #{vman,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="acount != null">
+        #{acount,jdbcType=DOUBLE},
+      </if>
+      <if test="number != null">
+        #{number,jdbcType=DOUBLE},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="dnumber != null">
+        #{dnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="isch != null">
+        #{isch,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="isapprove != null">
+        #{isapprove,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rg.Domain.Vmainten">
+    update vmainten
+    <set>
+      <if test="vman != null">
+        Vman = #{vman,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        Time = #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="acount != null">
+        acount = #{acount,jdbcType=DOUBLE},
+      </if>
+      <if test="number != null">
+        number = #{number,jdbcType=DOUBLE},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="dnumber != null">
+        Dnumber = #{dnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="isch != null">
+        IsCh = #{isch,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        Company = #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="isapprove != null">
+        IsApprove = #{isapprove,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rg.Domain.Vmainten">
+    update vmainten
+    set Vman = #{vman,jdbcType=VARCHAR},
+      Time = #{time,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      acount = #{acount,jdbcType=DOUBLE},
+      number = #{number,jdbcType=DOUBLE},
+      price = #{price,jdbcType=DOUBLE},
+      Dnumber = #{dnumber,jdbcType=VARCHAR},
+      IsCh = #{isch,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      Company = #{company,jdbcType=VARCHAR},
+      IsApprove = #{isapprove,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

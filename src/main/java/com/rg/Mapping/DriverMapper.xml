@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rg.IDao.DriverMapper">
+  <resultMap id="BaseResultMap" type="com.rg.Domain.Driver">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="DrName" jdbcType="VARCHAR" property="drname" />
+    <result column="age" jdbcType="VARCHAR" property="age" />
+    <result column="DrYear" jdbcType="VARCHAR" property="dryear" />
+    <result column="DrState" jdbcType="VARCHAR" property="drstate" />
+    <result column="Etime" jdbcType="VARCHAR" property="etime" />
+    <result column="Tnumber" jdbcType="VARCHAR" property="tnumber" />
+    <result column="Status" jdbcType="VARCHAR" property="status" />
+    <result column="Company" jdbcType="VARCHAR" property="company" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, DrName, age, DrYear, DrState, Etime, Tnumber, Status, Company
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from driver
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from driver
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.rg.Domain.Driver">
+    insert into driver (ID, DrName, age, 
+      DrYear, DrState, Etime, 
+      Tnumber, Status, Company
+      )
+    values (#{id,jdbcType=VARCHAR}, #{drname,jdbcType=VARCHAR}, #{age,jdbcType=VARCHAR}, 
+      #{dryear,jdbcType=VARCHAR}, #{drstate,jdbcType=VARCHAR}, #{etime,jdbcType=VARCHAR}, 
+      #{tnumber,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{company,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.rg.Domain.Driver">
+    insert into driver
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="drname != null">
+        DrName,
+      </if>
+      <if test="age != null">
+        age,
+      </if>
+      <if test="dryear != null">
+        DrYear,
+      </if>
+      <if test="drstate != null">
+        DrState,
+      </if>
+      <if test="etime != null">
+        Etime,
+      </if>
+      <if test="tnumber != null">
+        Tnumber,
+      </if>
+      <if test="status != null">
+        Status,
+      </if>
+      <if test="company != null">
+        Company,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="drname != null">
+        #{drname,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        #{age,jdbcType=VARCHAR},
+      </if>
+      <if test="dryear != null">
+        #{dryear,jdbcType=VARCHAR},
+      </if>
+      <if test="drstate != null">
+        #{drstate,jdbcType=VARCHAR},
+      </if>
+      <if test="etime != null">
+        #{etime,jdbcType=VARCHAR},
+      </if>
+      <if test="tnumber != null">
+        #{tnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        #{company,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rg.Domain.Driver">
+    update driver
+    <set>
+      <if test="drname != null">
+        DrName = #{drname,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        age = #{age,jdbcType=VARCHAR},
+      </if>
+      <if test="dryear != null">
+        DrYear = #{dryear,jdbcType=VARCHAR},
+      </if>
+      <if test="drstate != null">
+        DrState = #{drstate,jdbcType=VARCHAR},
+      </if>
+      <if test="etime != null">
+        Etime = #{etime,jdbcType=VARCHAR},
+      </if>
+      <if test="tnumber != null">
+        Tnumber = #{tnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        Status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        Company = #{company,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rg.Domain.Driver">
+    update driver
+    set DrName = #{drname,jdbcType=VARCHAR},
+      age = #{age,jdbcType=VARCHAR},
+      DrYear = #{dryear,jdbcType=VARCHAR},
+      DrState = #{drstate,jdbcType=VARCHAR},
+      Etime = #{etime,jdbcType=VARCHAR},
+      Tnumber = #{tnumber,jdbcType=VARCHAR},
+      Status = #{status,jdbcType=VARCHAR},
+      Company = #{company,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

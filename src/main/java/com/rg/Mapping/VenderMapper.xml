@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rg.IDao.VenderMapper">
+  <resultMap id="BaseResultMap" type="com.rg.Domain.Vender">
+    <result column="Vid" jdbcType="VARCHAR" property="vid" />
+    <result column="Vname" jdbcType="VARCHAR" property="vname" />
+    <result column="Count" jdbcType="DOUBLE" property="count" />
+    <result column="Lcount" jdbcType="DOUBLE" property="lcount" />
+    <result column="Tnumber" jdbcType="VARCHAR" property="tnumber" />
+    <result column="Place" jdbcType="VARCHAR" property="place" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+  </resultMap>
+  <insert id="insert" parameterType="com.rg.Domain.Vender">
+    insert into vender (Vid, Vname, Count, 
+      Lcount, Tnumber, Place, 
+      address)
+    values (#{vid,jdbcType=VARCHAR}, #{vname,jdbcType=VARCHAR}, #{count,jdbcType=DOUBLE}, 
+      #{lcount,jdbcType=DOUBLE}, #{tnumber,jdbcType=VARCHAR}, #{place,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rg.Domain.Vender">
+    insert into vender
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="vid != null">
+        Vid,
+      </if>
+      <if test="vname != null">
+        Vname,
+      </if>
+      <if test="count != null">
+        Count,
+      </if>
+      <if test="lcount != null">
+        Lcount,
+      </if>
+      <if test="tnumber != null">
+        Tnumber,
+      </if>
+      <if test="place != null">
+        Place,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="vid != null">
+        #{vid,jdbcType=VARCHAR},
+      </if>
+      <if test="vname != null">
+        #{vname,jdbcType=VARCHAR},
+      </if>
+      <if test="count != null">
+        #{count,jdbcType=DOUBLE},
+      </if>
+      <if test="lcount != null">
+        #{lcount,jdbcType=DOUBLE},
+      </if>
+      <if test="tnumber != null">
+        #{tnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

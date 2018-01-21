@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rg.IDao.CworkMapper">
+  <resultMap id="BaseResultMap" type="com.rg.Domain.Cwork">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="Eid" jdbcType="VARCHAR" property="eid" />
+    <result column="Ename" jdbcType="VARCHAR" property="ename" />
+    <result column="time" jdbcType="VARCHAR" property="time" />
+    <result column="place" jdbcType="VARCHAR" property="place" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, Eid, Ename, time, place
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from cwork
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from cwork
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.rg.Domain.Cwork">
+    insert into cwork (Id, Eid, Ename, 
+      time, place)
+    values (#{id,jdbcType=INTEGER}, #{eid,jdbcType=VARCHAR}, #{ename,jdbcType=VARCHAR}, 
+      #{time,jdbcType=VARCHAR}, #{place,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rg.Domain.Cwork">
+    insert into cwork
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="eid != null">
+        Eid,
+      </if>
+      <if test="ename != null">
+        Ename,
+      </if>
+      <if test="time != null">
+        time,
+      </if>
+      <if test="place != null">
+        place,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="eid != null">
+        #{eid,jdbcType=VARCHAR},
+      </if>
+      <if test="ename != null">
+        #{ename,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        #{place,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rg.Domain.Cwork">
+    update cwork
+    <set>
+      <if test="eid != null">
+        Eid = #{eid,jdbcType=VARCHAR},
+      </if>
+      <if test="ename != null">
+        Ename = #{ename,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        time = #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        place = #{place,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rg.Domain.Cwork">
+    update cwork
+    set Eid = #{eid,jdbcType=VARCHAR},
+      Ename = #{ename,jdbcType=VARCHAR},
+      time = #{time,jdbcType=VARCHAR},
+      place = #{place,jdbcType=VARCHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

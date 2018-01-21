@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rg.IDao.FchangeMapper">
+  <resultMap id="BaseResultMap" type="com.rg.Domain.Fchange">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="Fcode" jdbcType="VARCHAR" property="fcode" />
+    <result column="Cway" jdbcType="VARCHAR" property="cway" />
+    <result column="price" jdbcType="DOUBLE" property="price" />
+    <result column="time" jdbcType="VARCHAR" property="time" />
+    <result column="Company" jdbcType="VARCHAR" property="company" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, Fcode, Cway, price, time, Company
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from fchange
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from fchange
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.rg.Domain.Fchange">
+    insert into fchange (Id, Fcode, Cway, 
+      price, time, Company
+      )
+    values (#{id,jdbcType=INTEGER}, #{fcode,jdbcType=VARCHAR}, #{cway,jdbcType=VARCHAR}, 
+      #{price,jdbcType=DOUBLE}, #{time,jdbcType=VARCHAR}, #{company,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.rg.Domain.Fchange">
+    insert into fchange
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="fcode != null">
+        Fcode,
+      </if>
+      <if test="cway != null">
+        Cway,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="time != null">
+        time,
+      </if>
+      <if test="company != null">
+        Company,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="fcode != null">
+        #{fcode,jdbcType=VARCHAR},
+      </if>
+      <if test="cway != null">
+        #{cway,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        #{company,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rg.Domain.Fchange">
+    update fchange
+    <set>
+      <if test="fcode != null">
+        Fcode = #{fcode,jdbcType=VARCHAR},
+      </if>
+      <if test="cway != null">
+        Cway = #{cway,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="time != null">
+        time = #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        Company = #{company,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rg.Domain.Fchange">
+    update fchange
+    set Fcode = #{fcode,jdbcType=VARCHAR},
+      Cway = #{cway,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DOUBLE},
+      time = #{time,jdbcType=VARCHAR},
+      Company = #{company,jdbcType=VARCHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

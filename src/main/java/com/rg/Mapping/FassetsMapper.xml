@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rg.IDao.FassetsMapper">
+  <resultMap id="BaseResultMap" type="com.rg.Domain.Fassets">
+    <id column="Fcode" jdbcType="VARCHAR" property="fcode" />
+    <result column="Fname" jdbcType="VARCHAR" property="fname" />
+    <result column="price" jdbcType="DOUBLE" property="price" />
+    <result column="Type" jdbcType="VARCHAR" property="type" />
+    <result column="model" jdbcType="VARCHAR" property="model" />
+    <result column="unit" jdbcType="VARCHAR" property="unit" />
+    <result column="Cway" jdbcType="VARCHAR" property="cway" />
+    <result column="Creater" jdbcType="VARCHAR" property="creater" />
+    <result column="Cplace" jdbcType="VARCHAR" property="cplace" />
+    <result column="Offer" jdbcType="VARCHAR" property="offer" />
+    <result column="Rday" jdbcType="VARCHAR" property="rday" />
+    <result column="Uday" jdbcType="VARCHAR" property="uday" />
+    <result column="Ustatus" jdbcType="VARCHAR" property="ustatus" />
+    <result column="Campany" jdbcType="VARCHAR" property="campany" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Fcode, Fname, price, Type, model, unit, Cway, Creater, Cplace, Offer, Rday, Uday, 
+    Ustatus, Campany
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from fassets
+    where Fcode = #{fcode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from fassets
+    where Fcode = #{fcode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.rg.Domain.Fassets">
+    insert into fassets (Fcode, Fname, price, 
+      Type, model, unit, 
+      Cway, Creater, Cplace, 
+      Offer, Rday, Uday, 
+      Ustatus, Campany)
+    values (#{fcode,jdbcType=VARCHAR}, #{fname,jdbcType=VARCHAR}, #{price,jdbcType=DOUBLE}, 
+      #{type,jdbcType=VARCHAR}, #{model,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, 
+      #{cway,jdbcType=VARCHAR}, #{creater,jdbcType=VARCHAR}, #{cplace,jdbcType=VARCHAR}, 
+      #{offer,jdbcType=VARCHAR}, #{rday,jdbcType=VARCHAR}, #{uday,jdbcType=VARCHAR}, 
+      #{ustatus,jdbcType=VARCHAR}, #{campany,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rg.Domain.Fassets">
+    insert into fassets
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="fcode != null">
+        Fcode,
+      </if>
+      <if test="fname != null">
+        Fname,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="type != null">
+        Type,
+      </if>
+      <if test="model != null">
+        model,
+      </if>
+      <if test="unit != null">
+        unit,
+      </if>
+      <if test="cway != null">
+        Cway,
+      </if>
+      <if test="creater != null">
+        Creater,
+      </if>
+      <if test="cplace != null">
+        Cplace,
+      </if>
+      <if test="offer != null">
+        Offer,
+      </if>
+      <if test="rday != null">
+        Rday,
+      </if>
+      <if test="uday != null">
+        Uday,
+      </if>
+      <if test="ustatus != null">
+        Ustatus,
+      </if>
+      <if test="campany != null">
+        Campany,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="fcode != null">
+        #{fcode,jdbcType=VARCHAR},
+      </if>
+      <if test="fname != null">
+        #{fname,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null">
+        #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null">
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="cway != null">
+        #{cway,jdbcType=VARCHAR},
+      </if>
+      <if test="creater != null">
+        #{creater,jdbcType=VARCHAR},
+      </if>
+      <if test="cplace != null">
+        #{cplace,jdbcType=VARCHAR},
+      </if>
+      <if test="offer != null">
+        #{offer,jdbcType=VARCHAR},
+      </if>
+      <if test="rday != null">
+        #{rday,jdbcType=VARCHAR},
+      </if>
+      <if test="uday != null">
+        #{uday,jdbcType=VARCHAR},
+      </if>
+      <if test="ustatus != null">
+        #{ustatus,jdbcType=VARCHAR},
+      </if>
+      <if test="campany != null">
+        #{campany,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rg.Domain.Fassets">
+    update fassets
+    <set>
+      <if test="fname != null">
+        Fname = #{fname,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="type != null">
+        Type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null">
+        model = #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null">
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="cway != null">
+        Cway = #{cway,jdbcType=VARCHAR},
+      </if>
+      <if test="creater != null">
+        Creater = #{creater,jdbcType=VARCHAR},
+      </if>
+      <if test="cplace != null">
+        Cplace = #{cplace,jdbcType=VARCHAR},
+      </if>
+      <if test="offer != null">
+        Offer = #{offer,jdbcType=VARCHAR},
+      </if>
+      <if test="rday != null">
+        Rday = #{rday,jdbcType=VARCHAR},
+      </if>
+      <if test="uday != null">
+        Uday = #{uday,jdbcType=VARCHAR},
+      </if>
+      <if test="ustatus != null">
+        Ustatus = #{ustatus,jdbcType=VARCHAR},
+      </if>
+      <if test="campany != null">
+        Campany = #{campany,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Fcode = #{fcode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rg.Domain.Fassets">
+    update fassets
+    set Fname = #{fname,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DOUBLE},
+      Type = #{type,jdbcType=VARCHAR},
+      model = #{model,jdbcType=VARCHAR},
+      unit = #{unit,jdbcType=VARCHAR},
+      Cway = #{cway,jdbcType=VARCHAR},
+      Creater = #{creater,jdbcType=VARCHAR},
+      Cplace = #{cplace,jdbcType=VARCHAR},
+      Offer = #{offer,jdbcType=VARCHAR},
+      Rday = #{rday,jdbcType=VARCHAR},
+      Uday = #{uday,jdbcType=VARCHAR},
+      Ustatus = #{ustatus,jdbcType=VARCHAR},
+      Campany = #{campany,jdbcType=VARCHAR}
+    where Fcode = #{fcode,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rg.IDao.EturnoverMapper">
+  <resultMap id="BaseResultMap" type="com.rg.Domain.Eturnover">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="Eid" jdbcType="VARCHAR" property="eid" />
+    <result column="Ename" jdbcType="VARCHAR" property="ename" />
+    <result column="Unway" jdbcType="VARCHAR" property="unway" />
+    <result column="Cday" jdbcType="VARCHAR" property="cday" />
+    <result column="Company" jdbcType="VARCHAR" property="company" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, Eid, Ename, Unway, Cday, Company
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from eturnover
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from eturnover
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.rg.Domain.Eturnover">
+    insert into eturnover (Id, Eid, Ename, 
+      Unway, Cday, Company
+      )
+    values (#{id,jdbcType=INTEGER}, #{eid,jdbcType=VARCHAR}, #{ename,jdbcType=VARCHAR}, 
+      #{unway,jdbcType=VARCHAR}, #{cday,jdbcType=VARCHAR}, #{company,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.rg.Domain.Eturnover">
+    insert into eturnover
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="eid != null">
+        Eid,
+      </if>
+      <if test="ename != null">
+        Ename,
+      </if>
+      <if test="unway != null">
+        Unway,
+      </if>
+      <if test="cday != null">
+        Cday,
+      </if>
+      <if test="company != null">
+        Company,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="eid != null">
+        #{eid,jdbcType=VARCHAR},
+      </if>
+      <if test="ename != null">
+        #{ename,jdbcType=VARCHAR},
+      </if>
+      <if test="unway != null">
+        #{unway,jdbcType=VARCHAR},
+      </if>
+      <if test="cday != null">
+        #{cday,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        #{company,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rg.Domain.Eturnover">
+    update eturnover
+    <set>
+      <if test="eid != null">
+        Eid = #{eid,jdbcType=VARCHAR},
+      </if>
+      <if test="ename != null">
+        Ename = #{ename,jdbcType=VARCHAR},
+      </if>
+      <if test="unway != null">
+        Unway = #{unway,jdbcType=VARCHAR},
+      </if>
+      <if test="cday != null">
+        Cday = #{cday,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        Company = #{company,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rg.Domain.Eturnover">
+    update eturnover
+    set Eid = #{eid,jdbcType=VARCHAR},
+      Ename = #{ename,jdbcType=VARCHAR},
+      Unway = #{unway,jdbcType=VARCHAR},
+      Cday = #{cday,jdbcType=VARCHAR},
+      Company = #{company,jdbcType=VARCHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rg.IDao.BsettleMapper">
+  <resultMap id="BaseResultMap" type="com.rg.Domain.Bsettle">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="Bnumber" jdbcType="VARCHAR" property="bnumber" />
+    <result column="AoNumber" jdbcType="VARCHAR" property="aonumber" />
+    <result column="Cname" jdbcType="VARCHAR" property="cname" />
+    <result column="Rece" jdbcType="DOUBLE" property="rece" />
+    <result column="Orece" jdbcType="DOUBLE" property="orece" />
+    <result column="Scount" jdbcType="DOUBLE" property="scount" />
+    <result column="IsOver" jdbcType="VARCHAR" property="isover" />
+    <result column="Company" jdbcType="VARCHAR" property="company" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, Bnumber, AoNumber, Cname, Rece, Orece, Scount, IsOver, Company
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from bsettle
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from bsettle
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.rg.Domain.Bsettle">
+    insert into bsettle (ID, Bnumber, AoNumber, 
+      Cname, Rece, Orece, Scount, 
+      IsOver, Company)
+    values (#{id,jdbcType=INTEGER}, #{bnumber,jdbcType=VARCHAR}, #{aonumber,jdbcType=VARCHAR}, 
+      #{cname,jdbcType=VARCHAR}, #{rece,jdbcType=DOUBLE}, #{orece,jdbcType=DOUBLE}, #{scount,jdbcType=DOUBLE}, 
+      #{isover,jdbcType=VARCHAR}, #{company,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rg.Domain.Bsettle">
+    insert into bsettle
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="bnumber != null">
+        Bnumber,
+      </if>
+      <if test="aonumber != null">
+        AoNumber,
+      </if>
+      <if test="cname != null">
+        Cname,
+      </if>
+      <if test="rece != null">
+        Rece,
+      </if>
+      <if test="orece != null">
+        Orece,
+      </if>
+      <if test="scount != null">
+        Scount,
+      </if>
+      <if test="isover != null">
+        IsOver,
+      </if>
+      <if test="company != null">
+        Company,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="bnumber != null">
+        #{bnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="aonumber != null">
+        #{aonumber,jdbcType=VARCHAR},
+      </if>
+      <if test="cname != null">
+        #{cname,jdbcType=VARCHAR},
+      </if>
+      <if test="rece != null">
+        #{rece,jdbcType=DOUBLE},
+      </if>
+      <if test="orece != null">
+        #{orece,jdbcType=DOUBLE},
+      </if>
+      <if test="scount != null">
+        #{scount,jdbcType=DOUBLE},
+      </if>
+      <if test="isover != null">
+        #{isover,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        #{company,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rg.Domain.Bsettle">
+    update bsettle
+    <set>
+      <if test="bnumber != null">
+        Bnumber = #{bnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="aonumber != null">
+        AoNumber = #{aonumber,jdbcType=VARCHAR},
+      </if>
+      <if test="cname != null">
+        Cname = #{cname,jdbcType=VARCHAR},
+      </if>
+      <if test="rece != null">
+        Rece = #{rece,jdbcType=DOUBLE},
+      </if>
+      <if test="orece != null">
+        Orece = #{orece,jdbcType=DOUBLE},
+      </if>
+      <if test="scount != null">
+        Scount = #{scount,jdbcType=DOUBLE},
+      </if>
+      <if test="isover != null">
+        IsOver = #{isover,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        Company = #{company,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rg.Domain.Bsettle">
+    update bsettle
+    set Bnumber = #{bnumber,jdbcType=VARCHAR},
+      AoNumber = #{aonumber,jdbcType=VARCHAR},
+      Cname = #{cname,jdbcType=VARCHAR},
+      Rece = #{rece,jdbcType=DOUBLE},
+      Orece = #{orece,jdbcType=DOUBLE},
+      Scount = #{scount,jdbcType=DOUBLE},
+      IsOver = #{isover,jdbcType=VARCHAR},
+      Company = #{company,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

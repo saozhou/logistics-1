@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rg.IDao.TsalaryMapper">
+  <resultMap id="BaseResultMap" type="com.rg.Domain.Tsalary">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="AoNumber" jdbcType="VARCHAR" property="aonumber" />
+    <result column="Dnumber" jdbcType="VARCHAR" property="dnumber" />
+    <result column="Ctime" jdbcType="VARCHAR" property="ctime" />
+    <result column="Otime" jdbcType="VARCHAR" property="otime" />
+    <result column="Vname" jdbcType="VARCHAR" property="vname" />
+    <result column="Spec" jdbcType="VARCHAR" property="spec" />
+    <result column="Gbrand" jdbcType="VARCHAR" property="gbrand" />
+    <result column="packing" jdbcType="VARCHAR" property="packing" />
+    <result column="Oamount" jdbcType="DOUBLE" property="oamount" />
+    <result column="Ramount" jdbcType="DOUBLE" property="ramount" />
+    <result column="Iprice" jdbcType="DOUBLE" property="iprice" />
+    <result column="Aprice" jdbcType="DOUBLE" property="aprice" />
+    <result column="Mprice" jdbcType="DOUBLE" property="mprice" />
+    <result column="Cname" jdbcType="VARCHAR" property="cname" />
+    <result column="Caddress" jdbcType="VARCHAR" property="caddress" />
+    <result column="Saddress" jdbcType="VARCHAR" property="saddress" />
+    <result column="Oprice" jdbcType="DOUBLE" property="oprice" />
+    <result column="Aoprice" jdbcType="DOUBLE" property="aoprice" />
+    <result column="Carrier" jdbcType="VARCHAR" property="carrier" />
+    <result column="Dprice" jdbcType="DOUBLE" property="dprice" />
+    <result column="Uprice" jdbcType="DOUBLE" property="uprice" />
+    <result column="Doprice" jdbcType="DOUBLE" property="doprice" />
+    <result column="Pnumber" jdbcType="VARCHAR" property="pnumber" />
+    <result column="Note" jdbcType="VARCHAR" property="note" />
+    <result column="Achecking" jdbcType="VARCHAR" property="achecking" />
+    <result column="Eshop" jdbcType="VARCHAR" property="eshop" />
+    <result column="Mileage" jdbcType="VARCHAR" property="mileage" />
+    <result column="Rname" jdbcType="VARCHAR" property="rname" />
+    <result column="Company" jdbcType="VARCHAR" property="company" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, AoNumber, Dnumber, Ctime, Otime, Vname, Spec, Gbrand, packing, Oamount, Ramount, 
+    Iprice, Aprice, Mprice, Cname, Caddress, Saddress, Oprice, Aoprice, Carrier, Dprice, 
+    Uprice, Doprice, Pnumber, Note, Achecking, Eshop, Mileage, Rname, Company
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tsalary
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tsalary
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.rg.Domain.Tsalary">
+    insert into tsalary (Id, AoNumber, Dnumber, 
+      Ctime, Otime, Vname, 
+      Spec, Gbrand, packing, 
+      Oamount, Ramount, Iprice, 
+      Aprice, Mprice, Cname, 
+      Caddress, Saddress, Oprice, 
+      Aoprice, Carrier, Dprice, 
+      Uprice, Doprice, Pnumber, 
+      Note, Achecking, Eshop, 
+      Mileage, Rname, Company
+      )
+    values (#{id,jdbcType=INTEGER}, #{aonumber,jdbcType=VARCHAR}, #{dnumber,jdbcType=VARCHAR}, 
+      #{ctime,jdbcType=VARCHAR}, #{otime,jdbcType=VARCHAR}, #{vname,jdbcType=VARCHAR}, 
+      #{spec,jdbcType=VARCHAR}, #{gbrand,jdbcType=VARCHAR}, #{packing,jdbcType=VARCHAR}, 
+      #{oamount,jdbcType=DOUBLE}, #{ramount,jdbcType=DOUBLE}, #{iprice,jdbcType=DOUBLE}, 
+      #{aprice,jdbcType=DOUBLE}, #{mprice,jdbcType=DOUBLE}, #{cname,jdbcType=VARCHAR}, 
+      #{caddress,jdbcType=VARCHAR}, #{saddress,jdbcType=VARCHAR}, #{oprice,jdbcType=DOUBLE}, 
+      #{aoprice,jdbcType=DOUBLE}, #{carrier,jdbcType=VARCHAR}, #{dprice,jdbcType=DOUBLE}, 
+      #{uprice,jdbcType=DOUBLE}, #{doprice,jdbcType=DOUBLE}, #{pnumber,jdbcType=VARCHAR}, 
+      #{note,jdbcType=VARCHAR}, #{achecking,jdbcType=VARCHAR}, #{eshop,jdbcType=VARCHAR}, 
+      #{mileage,jdbcType=VARCHAR}, #{rname,jdbcType=VARCHAR}, #{company,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.rg.Domain.Tsalary">
+    insert into tsalary
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="aonumber != null">
+        AoNumber,
+      </if>
+      <if test="dnumber != null">
+        Dnumber,
+      </if>
+      <if test="ctime != null">
+        Ctime,
+      </if>
+      <if test="otime != null">
+        Otime,
+      </if>
+      <if test="vname != null">
+        Vname,
+      </if>
+      <if test="spec != null">
+        Spec,
+      </if>
+      <if test="gbrand != null">
+        Gbrand,
+      </if>
+      <if test="packing != null">
+        packing,
+      </if>
+      <if test="oamount != null">
+        Oamount,
+      </if>
+      <if test="ramount != null">
+        Ramount,
+      </if>
+      <if test="iprice != null">
+        Iprice,
+      </if>
+      <if test="aprice != null">
+        Aprice,
+      </if>
+      <if test="mprice != null">
+        Mprice,
+      </if>
+      <if test="cname != null">
+        Cname,
+      </if>
+      <if test="caddress != null">
+        Caddress,
+      </if>
+      <if test="saddress != null">
+        Saddress,
+      </if>
+      <if test="oprice != null">
+        Oprice,
+      </if>
+      <if test="aoprice != null">
+        Aoprice,
+      </if>
+      <if test="carrier != null">
+        Carrier,
+      </if>
+      <if test="dprice != null">
+        Dprice,
+      </if>
+      <if test="uprice != null">
+        Uprice,
+      </if>
+      <if test="doprice != null">
+        Doprice,
+      </if>
+      <if test="pnumber != null">
+        Pnumber,
+      </if>
+      <if test="note != null">
+        Note,
+      </if>
+      <if test="achecking != null">
+        Achecking,
+      </if>
+      <if test="eshop != null">
+        Eshop,
+      </if>
+      <if test="mileage != null">
+        Mileage,
+      </if>
+      <if test="rname != null">
+        Rname,
+      </if>
+      <if test="company != null">
+        Company,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="aonumber != null">
+        #{aonumber,jdbcType=VARCHAR},
+      </if>
+      <if test="dnumber != null">
+        #{dnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="ctime != null">
+        #{ctime,jdbcType=VARCHAR},
+      </if>
+      <if test="otime != null">
+        #{otime,jdbcType=VARCHAR},
+      </if>
+      <if test="vname != null">
+        #{vname,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null">
+        #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="gbrand != null">
+        #{gbrand,jdbcType=VARCHAR},
+      </if>
+      <if test="packing != null">
+        #{packing,jdbcType=VARCHAR},
+      </if>
+      <if test="oamount != null">
+        #{oamount,jdbcType=DOUBLE},
+      </if>
+      <if test="ramount != null">
+        #{ramount,jdbcType=DOUBLE},
+      </if>
+      <if test="iprice != null">
+        #{iprice,jdbcType=DOUBLE},
+      </if>
+      <if test="aprice != null">
+        #{aprice,jdbcType=DOUBLE},
+      </if>
+      <if test="mprice != null">
+        #{mprice,jdbcType=DOUBLE},
+      </if>
+      <if test="cname != null">
+        #{cname,jdbcType=VARCHAR},
+      </if>
+      <if test="caddress != null">
+        #{caddress,jdbcType=VARCHAR},
+      </if>
+      <if test="saddress != null">
+        #{saddress,jdbcType=VARCHAR},
+      </if>
+      <if test="oprice != null">
+        #{oprice,jdbcType=DOUBLE},
+      </if>
+      <if test="aoprice != null">
+        #{aoprice,jdbcType=DOUBLE},
+      </if>
+      <if test="carrier != null">
+        #{carrier,jdbcType=VARCHAR},
+      </if>
+      <if test="dprice != null">
+        #{dprice,jdbcType=DOUBLE},
+      </if>
+      <if test="uprice != null">
+        #{uprice,jdbcType=DOUBLE},
+      </if>
+      <if test="doprice != null">
+        #{doprice,jdbcType=DOUBLE},
+      </if>
+      <if test="pnumber != null">
+        #{pnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="achecking != null">
+        #{achecking,jdbcType=VARCHAR},
+      </if>
+      <if test="eshop != null">
+        #{eshop,jdbcType=VARCHAR},
+      </if>
+      <if test="mileage != null">
+        #{mileage,jdbcType=VARCHAR},
+      </if>
+      <if test="rname != null">
+        #{rname,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        #{company,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rg.Domain.Tsalary">
+    update tsalary
+    <set>
+      <if test="aonumber != null">
+        AoNumber = #{aonumber,jdbcType=VARCHAR},
+      </if>
+      <if test="dnumber != null">
+        Dnumber = #{dnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="ctime != null">
+        Ctime = #{ctime,jdbcType=VARCHAR},
+      </if>
+      <if test="otime != null">
+        Otime = #{otime,jdbcType=VARCHAR},
+      </if>
+      <if test="vname != null">
+        Vname = #{vname,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null">
+        Spec = #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="gbrand != null">
+        Gbrand = #{gbrand,jdbcType=VARCHAR},
+      </if>
+      <if test="packing != null">
+        packing = #{packing,jdbcType=VARCHAR},
+      </if>
+      <if test="oamount != null">
+        Oamount = #{oamount,jdbcType=DOUBLE},
+      </if>
+      <if test="ramount != null">
+        Ramount = #{ramount,jdbcType=DOUBLE},
+      </if>
+      <if test="iprice != null">
+        Iprice = #{iprice,jdbcType=DOUBLE},
+      </if>
+      <if test="aprice != null">
+        Aprice = #{aprice,jdbcType=DOUBLE},
+      </if>
+      <if test="mprice != null">
+        Mprice = #{mprice,jdbcType=DOUBLE},
+      </if>
+      <if test="cname != null">
+        Cname = #{cname,jdbcType=VARCHAR},
+      </if>
+      <if test="caddress != null">
+        Caddress = #{caddress,jdbcType=VARCHAR},
+      </if>
+      <if test="saddress != null">
+        Saddress = #{saddress,jdbcType=VARCHAR},
+      </if>
+      <if test="oprice != null">
+        Oprice = #{oprice,jdbcType=DOUBLE},
+      </if>
+      <if test="aoprice != null">
+        Aoprice = #{aoprice,jdbcType=DOUBLE},
+      </if>
+      <if test="carrier != null">
+        Carrier = #{carrier,jdbcType=VARCHAR},
+      </if>
+      <if test="dprice != null">
+        Dprice = #{dprice,jdbcType=DOUBLE},
+      </if>
+      <if test="uprice != null">
+        Uprice = #{uprice,jdbcType=DOUBLE},
+      </if>
+      <if test="doprice != null">
+        Doprice = #{doprice,jdbcType=DOUBLE},
+      </if>
+      <if test="pnumber != null">
+        Pnumber = #{pnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null">
+        Note = #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="achecking != null">
+        Achecking = #{achecking,jdbcType=VARCHAR},
+      </if>
+      <if test="eshop != null">
+        Eshop = #{eshop,jdbcType=VARCHAR},
+      </if>
+      <if test="mileage != null">
+        Mileage = #{mileage,jdbcType=VARCHAR},
+      </if>
+      <if test="rname != null">
+        Rname = #{rname,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        Company = #{company,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rg.Domain.Tsalary">
+    update tsalary
+    set AoNumber = #{aonumber,jdbcType=VARCHAR},
+      Dnumber = #{dnumber,jdbcType=VARCHAR},
+      Ctime = #{ctime,jdbcType=VARCHAR},
+      Otime = #{otime,jdbcType=VARCHAR},
+      Vname = #{vname,jdbcType=VARCHAR},
+      Spec = #{spec,jdbcType=VARCHAR},
+      Gbrand = #{gbrand,jdbcType=VARCHAR},
+      packing = #{packing,jdbcType=VARCHAR},
+      Oamount = #{oamount,jdbcType=DOUBLE},
+      Ramount = #{ramount,jdbcType=DOUBLE},
+      Iprice = #{iprice,jdbcType=DOUBLE},
+      Aprice = #{aprice,jdbcType=DOUBLE},
+      Mprice = #{mprice,jdbcType=DOUBLE},
+      Cname = #{cname,jdbcType=VARCHAR},
+      Caddress = #{caddress,jdbcType=VARCHAR},
+      Saddress = #{saddress,jdbcType=VARCHAR},
+      Oprice = #{oprice,jdbcType=DOUBLE},
+      Aoprice = #{aoprice,jdbcType=DOUBLE},
+      Carrier = #{carrier,jdbcType=VARCHAR},
+      Dprice = #{dprice,jdbcType=DOUBLE},
+      Uprice = #{uprice,jdbcType=DOUBLE},
+      Doprice = #{doprice,jdbcType=DOUBLE},
+      Pnumber = #{pnumber,jdbcType=VARCHAR},
+      Note = #{note,jdbcType=VARCHAR},
+      Achecking = #{achecking,jdbcType=VARCHAR},
+      Eshop = #{eshop,jdbcType=VARCHAR},
+      Mileage = #{mileage,jdbcType=VARCHAR},
+      Rname = #{rname,jdbcType=VARCHAR},
+      Company = #{company,jdbcType=VARCHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

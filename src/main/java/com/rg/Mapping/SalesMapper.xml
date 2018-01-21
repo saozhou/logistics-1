@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rg.IDao.SalesMapper">
+  <resultMap id="BaseResultMap" type="com.rg.Domain.Sales">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="Eid" jdbcType="VARCHAR" property="eid" />
+    <result column="Ename" jdbcType="VARCHAR" property="ename" />
+    <result column="Schedule" jdbcType="DOUBLE" property="schedule" />
+    <result column="Finish" jdbcType="DOUBLE" property="finish" />
+    <result column="Month" jdbcType="VARCHAR" property="month" />
+    <result column="Year" jdbcType="VARCHAR" property="year" />
+    <result column="Dis" jdbcType="DOUBLE" property="dis" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, Eid, Ename, Schedule, Finish, Month, Year, Dis
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sales
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sales
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.rg.Domain.Sales">
+    insert into sales (ID, Eid, Ename, 
+      Schedule, Finish, Month, 
+      Year, Dis)
+    values (#{id,jdbcType=INTEGER}, #{eid,jdbcType=VARCHAR}, #{ename,jdbcType=VARCHAR}, 
+      #{schedule,jdbcType=DOUBLE}, #{finish,jdbcType=DOUBLE}, #{month,jdbcType=VARCHAR}, 
+      #{year,jdbcType=VARCHAR}, #{dis,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rg.Domain.Sales">
+    insert into sales
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="eid != null">
+        Eid,
+      </if>
+      <if test="ename != null">
+        Ename,
+      </if>
+      <if test="schedule != null">
+        Schedule,
+      </if>
+      <if test="finish != null">
+        Finish,
+      </if>
+      <if test="month != null">
+        Month,
+      </if>
+      <if test="year != null">
+        Year,
+      </if>
+      <if test="dis != null">
+        Dis,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="eid != null">
+        #{eid,jdbcType=VARCHAR},
+      </if>
+      <if test="ename != null">
+        #{ename,jdbcType=VARCHAR},
+      </if>
+      <if test="schedule != null">
+        #{schedule,jdbcType=DOUBLE},
+      </if>
+      <if test="finish != null">
+        #{finish,jdbcType=DOUBLE},
+      </if>
+      <if test="month != null">
+        #{month,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null">
+        #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="dis != null">
+        #{dis,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rg.Domain.Sales">
+    update sales
+    <set>
+      <if test="eid != null">
+        Eid = #{eid,jdbcType=VARCHAR},
+      </if>
+      <if test="ename != null">
+        Ename = #{ename,jdbcType=VARCHAR},
+      </if>
+      <if test="schedule != null">
+        Schedule = #{schedule,jdbcType=DOUBLE},
+      </if>
+      <if test="finish != null">
+        Finish = #{finish,jdbcType=DOUBLE},
+      </if>
+      <if test="month != null">
+        Month = #{month,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null">
+        Year = #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="dis != null">
+        Dis = #{dis,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rg.Domain.Sales">
+    update sales
+    set Eid = #{eid,jdbcType=VARCHAR},
+      Ename = #{ename,jdbcType=VARCHAR},
+      Schedule = #{schedule,jdbcType=DOUBLE},
+      Finish = #{finish,jdbcType=DOUBLE},
+      Month = #{month,jdbcType=VARCHAR},
+      Year = #{year,jdbcType=VARCHAR},
+      Dis = #{dis,jdbcType=DOUBLE}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

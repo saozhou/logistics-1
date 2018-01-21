@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rg.IDao.FileRecordMapper">
+  <resultMap id="BaseResultMap" type="com.rg.Domain.FileRecord">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="Uday" jdbcType="VARCHAR" property="uday" />
+    <result column="Ftype" jdbcType="VARCHAR" property="ftype" />
+    <result column="Fname" jdbcType="VARCHAR" property="fname" />
+    <result column="Furl" jdbcType="VARCHAR" property="furl" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, Uday, Ftype, Fname, Furl
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from filerecord
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from filerecord
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.rg.Domain.FileRecord">
+    insert into filerecord (ID, Uday, Ftype, 
+      Fname, Furl)
+    values (#{id,jdbcType=INTEGER}, #{uday,jdbcType=VARCHAR}, #{ftype,jdbcType=VARCHAR}, 
+      #{fname,jdbcType=VARCHAR}, #{furl,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rg.Domain.FileRecord">
+    insert into filerecord
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="uday != null">
+        Uday,
+      </if>
+      <if test="ftype != null">
+        Ftype,
+      </if>
+      <if test="fname != null">
+        Fname,
+      </if>
+      <if test="furl != null">
+        Furl,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="uday != null">
+        #{uday,jdbcType=VARCHAR},
+      </if>
+      <if test="ftype != null">
+        #{ftype,jdbcType=VARCHAR},
+      </if>
+      <if test="fname != null">
+        #{fname,jdbcType=VARCHAR},
+      </if>
+      <if test="furl != null">
+        #{furl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rg.Domain.FileRecord">
+    update filerecord
+    <set>
+      <if test="uday != null">
+        Uday = #{uday,jdbcType=VARCHAR},
+      </if>
+      <if test="ftype != null">
+        Ftype = #{ftype,jdbcType=VARCHAR},
+      </if>
+      <if test="fname != null">
+        Fname = #{fname,jdbcType=VARCHAR},
+      </if>
+      <if test="furl != null">
+        Furl = #{furl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rg.Domain.FileRecord">
+    update filerecord
+    set Uday = #{uday,jdbcType=VARCHAR},
+      Ftype = #{ftype,jdbcType=VARCHAR},
+      Fname = #{fname,jdbcType=VARCHAR},
+      Furl = #{furl,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

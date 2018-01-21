@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rg.IDao.AtransportMapper">
+  <resultMap id="BaseResultMap" type="com.rg.Domain.Atransport">
+    <id column="AoNumber" jdbcType="VARCHAR" property="aonumber" />
+    <result column="Cnumber" jdbcType="VARCHAR" property="cnumber" />
+    <result column="Bnumber" jdbcType="VARCHAR" property="bnumber" />
+    <result column="Company" jdbcType="VARCHAR" property="company" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    AoNumber, Cnumber, Bnumber, Company
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from atransport
+    where AoNumber = #{aonumber,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from atransport
+    where AoNumber = #{aonumber,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.rg.Domain.Atransport">
+    insert into atransport (AoNumber, Cnumber, Bnumber, 
+      Company)
+    values (#{aonumber,jdbcType=VARCHAR}, #{cnumber,jdbcType=VARCHAR}, #{bnumber,jdbcType=VARCHAR}, 
+      #{company,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rg.Domain.Atransport">
+    insert into atransport
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="aonumber != null">
+        AoNumber,
+      </if>
+      <if test="cnumber != null">
+        Cnumber,
+      </if>
+      <if test="bnumber != null">
+        Bnumber,
+      </if>
+      <if test="company != null">
+        Company,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="aonumber != null">
+        #{aonumber,jdbcType=VARCHAR},
+      </if>
+      <if test="cnumber != null">
+        #{cnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="bnumber != null">
+        #{bnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        #{company,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rg.Domain.Atransport">
+    update atransport
+    <set>
+      <if test="cnumber != null">
+        Cnumber = #{cnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="bnumber != null">
+        Bnumber = #{bnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        Company = #{company,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where AoNumber = #{aonumber,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rg.Domain.Atransport">
+    update atransport
+    set Cnumber = #{cnumber,jdbcType=VARCHAR},
+      Bnumber = #{bnumber,jdbcType=VARCHAR},
+      Company = #{company,jdbcType=VARCHAR}
+    where AoNumber = #{aonumber,jdbcType=VARCHAR}
+  </update>
+</mapper>

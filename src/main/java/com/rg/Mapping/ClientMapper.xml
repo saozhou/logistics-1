@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rg.IDao.ClientMapper">
+  <resultMap id="BaseResultMap" type="com.rg.Domain.Client">
+    <id column="Cid" jdbcType="VARCHAR" property="cid" />
+    <result column="Category" jdbcType="INTEGER" property="category" />
+    <result column="Cname" jdbcType="VARCHAR" property="cname" />
+    <result column="credit" jdbcType="DOUBLE" property="credit" />
+    <result column="Lcredit" jdbcType="DOUBLE" property="lcredit" />
+    <result column="Tnumber" jdbcType="VARCHAR" property="tnumber" />
+    <result column="place" jdbcType="VARCHAR" property="place" />
+    <result column="Address" jdbcType="VARCHAR" property="address" />
+    <result column="Ctype" jdbcType="INTEGER" property="ctype" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Cid, Category, Cname, credit, Lcredit, Tnumber, place, Address, Ctype
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from client
+    where Cid = #{cid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from client
+    where Cid = #{cid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.rg.Domain.Client">
+    insert into client (Cid, Category, Cname, 
+      credit, Lcredit, Tnumber, 
+      place, Address, Ctype
+      )
+    values (#{cid,jdbcType=VARCHAR}, #{category,jdbcType=INTEGER}, #{cname,jdbcType=VARCHAR}, 
+      #{credit,jdbcType=DOUBLE}, #{lcredit,jdbcType=DOUBLE}, #{tnumber,jdbcType=VARCHAR}, 
+      #{place,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{ctype,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.rg.Domain.Client">
+    insert into client
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cid != null">
+        Cid,
+      </if>
+      <if test="category != null">
+        Category,
+      </if>
+      <if test="cname != null">
+        Cname,
+      </if>
+      <if test="credit != null">
+        credit,
+      </if>
+      <if test="lcredit != null">
+        Lcredit,
+      </if>
+      <if test="tnumber != null">
+        Tnumber,
+      </if>
+      <if test="place != null">
+        place,
+      </if>
+      <if test="address != null">
+        Address,
+      </if>
+      <if test="ctype != null">
+        Ctype,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cid != null">
+        #{cid,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null">
+        #{category,jdbcType=INTEGER},
+      </if>
+      <if test="cname != null">
+        #{cname,jdbcType=VARCHAR},
+      </if>
+      <if test="credit != null">
+        #{credit,jdbcType=DOUBLE},
+      </if>
+      <if test="lcredit != null">
+        #{lcredit,jdbcType=DOUBLE},
+      </if>
+      <if test="tnumber != null">
+        #{tnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="ctype != null">
+        #{ctype,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rg.Domain.Client">
+    update client
+    <set>
+      <if test="category != null">
+        Category = #{category,jdbcType=INTEGER},
+      </if>
+      <if test="cname != null">
+        Cname = #{cname,jdbcType=VARCHAR},
+      </if>
+      <if test="credit != null">
+        credit = #{credit,jdbcType=DOUBLE},
+      </if>
+      <if test="lcredit != null">
+        Lcredit = #{lcredit,jdbcType=DOUBLE},
+      </if>
+      <if test="tnumber != null">
+        Tnumber = #{tnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        place = #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        Address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="ctype != null">
+        Ctype = #{ctype,jdbcType=INTEGER},
+      </if>
+    </set>
+    where Cid = #{cid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rg.Domain.Client">
+    update client
+    set Category = #{category,jdbcType=INTEGER},
+      Cname = #{cname,jdbcType=VARCHAR},
+      credit = #{credit,jdbcType=DOUBLE},
+      Lcredit = #{lcredit,jdbcType=DOUBLE},
+      Tnumber = #{tnumber,jdbcType=VARCHAR},
+      place = #{place,jdbcType=VARCHAR},
+      Address = #{address,jdbcType=VARCHAR},
+      Ctype = #{ctype,jdbcType=INTEGER}
+    where Cid = #{cid,jdbcType=VARCHAR}
+  </update>
+</mapper>

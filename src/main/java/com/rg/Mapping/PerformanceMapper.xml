@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rg.IDao.PerformanceMapper">
+  <resultMap id="BaseResultMap" type="com.rg.Domain.Performance">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="Eid" jdbcType="VARCHAR" property="eid" />
+    <result column="Ename" jdbcType="VARCHAR" property="ename" />
+    <result column="Score" jdbcType="DOUBLE" property="score" />
+    <result column="year" jdbcType="VARCHAR" property="year" />
+    <result column="Month" jdbcType="VARCHAR" property="month" />
+    <result column="Money" jdbcType="DOUBLE" property="money" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, Eid, Ename, Score, year, Month, Money
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from performance
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from performance
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.rg.Domain.Performance">
+    insert into performance (ID, Eid, Ename, 
+      Score, year, Month, 
+      Money)
+    values (#{id,jdbcType=INTEGER}, #{eid,jdbcType=VARCHAR}, #{ename,jdbcType=VARCHAR}, 
+      #{score,jdbcType=DOUBLE}, #{year,jdbcType=VARCHAR}, #{month,jdbcType=VARCHAR}, 
+      #{money,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rg.Domain.Performance">
+    insert into performance
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="eid != null">
+        Eid,
+      </if>
+      <if test="ename != null">
+        Ename,
+      </if>
+      <if test="score != null">
+        Score,
+      </if>
+      <if test="year != null">
+        year,
+      </if>
+      <if test="month != null">
+        Month,
+      </if>
+      <if test="money != null">
+        Money,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="eid != null">
+        #{eid,jdbcType=VARCHAR},
+      </if>
+      <if test="ename != null">
+        #{ename,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null">
+        #{score,jdbcType=DOUBLE},
+      </if>
+      <if test="year != null">
+        #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="month != null">
+        #{month,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null">
+        #{money,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rg.Domain.Performance">
+    update performance
+    <set>
+      <if test="eid != null">
+        Eid = #{eid,jdbcType=VARCHAR},
+      </if>
+      <if test="ename != null">
+        Ename = #{ename,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null">
+        Score = #{score,jdbcType=DOUBLE},
+      </if>
+      <if test="year != null">
+        year = #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="month != null">
+        Month = #{month,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null">
+        Money = #{money,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rg.Domain.Performance">
+    update performance
+    set Eid = #{eid,jdbcType=VARCHAR},
+      Ename = #{ename,jdbcType=VARCHAR},
+      Score = #{score,jdbcType=DOUBLE},
+      year = #{year,jdbcType=VARCHAR},
+      Month = #{month,jdbcType=VARCHAR},
+      Money = #{money,jdbcType=DOUBLE}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

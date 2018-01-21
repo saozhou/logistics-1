@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rg.IDao.BamountMapper">
+  <resultMap id="BaseResultMap" type="com.rg.Domain.Bamount">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="Ecode" jdbcType="VARCHAR" property="ecode" />
+    <result column="Ename" jdbcType="VARCHAR" property="ename" />
+    <result column="Currency" jdbcType="VARCHAR" property="currency" />
+    <result column="FjBalance" jdbcType="DOUBLE" property="fjbalance" />
+    <result column="FdBalance" jdbcType="DOUBLE" property="fdbalance" />
+    <result column="TjBalance" jdbcType="DOUBLE" property="tjbalance" />
+    <result column="AjBalance" jdbcType="DOUBLE" property="ajbalance" />
+    <result column="AdBalance" jdbcType="DOUBLE" property="adbalance" />
+    <result column="LjBalance" jdbcType="DOUBLE" property="ljbalance" />
+    <result column="LdBalance" jdbcType="DOUBLE" property="ldbalance" />
+    <result column="Expect" jdbcType="VARCHAR" property="expect" />
+    <result column="Year" jdbcType="VARCHAR" property="year" />
+    <result column="TdBalance" jdbcType="DOUBLE" property="tdbalance" />
+    <result column="Company" jdbcType="VARCHAR" property="company" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, Ecode, Ename, Currency, FjBalance, FdBalance, TjBalance, AjBalance, AdBalance, 
+    LjBalance, LdBalance, Expect, Year, TdBalance, Company
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from bamount
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from bamount
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.rg.Domain.Bamount">
+    insert into bamount (ID, Ecode, Ename, 
+      Currency, FjBalance, FdBalance, 
+      TjBalance, AjBalance, AdBalance, 
+      LjBalance, LdBalance, Expect, 
+      Year, TdBalance, Company
+      )
+    values (#{id,jdbcType=INTEGER}, #{ecode,jdbcType=VARCHAR}, #{ename,jdbcType=VARCHAR}, 
+      #{currency,jdbcType=VARCHAR}, #{fjbalance,jdbcType=DOUBLE}, #{fdbalance,jdbcType=DOUBLE}, 
+      #{tjbalance,jdbcType=DOUBLE}, #{ajbalance,jdbcType=DOUBLE}, #{adbalance,jdbcType=DOUBLE}, 
+      #{ljbalance,jdbcType=DOUBLE}, #{ldbalance,jdbcType=DOUBLE}, #{expect,jdbcType=VARCHAR}, 
+      #{year,jdbcType=VARCHAR}, #{tdbalance,jdbcType=DOUBLE}, #{company,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.rg.Domain.Bamount">
+    insert into bamount
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="ecode != null">
+        Ecode,
+      </if>
+      <if test="ename != null">
+        Ename,
+      </if>
+      <if test="currency != null">
+        Currency,
+      </if>
+      <if test="fjbalance != null">
+        FjBalance,
+      </if>
+      <if test="fdbalance != null">
+        FdBalance,
+      </if>
+      <if test="tjbalance != null">
+        TjBalance,
+      </if>
+      <if test="ajbalance != null">
+        AjBalance,
+      </if>
+      <if test="adbalance != null">
+        AdBalance,
+      </if>
+      <if test="ljbalance != null">
+        LjBalance,
+      </if>
+      <if test="ldbalance != null">
+        LdBalance,
+      </if>
+      <if test="expect != null">
+        Expect,
+      </if>
+      <if test="year != null">
+        Year,
+      </if>
+      <if test="tdbalance != null">
+        TdBalance,
+      </if>
+      <if test="company != null">
+        Company,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="ecode != null">
+        #{ecode,jdbcType=VARCHAR},
+      </if>
+      <if test="ename != null">
+        #{ename,jdbcType=VARCHAR},
+      </if>
+      <if test="currency != null">
+        #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="fjbalance != null">
+        #{fjbalance,jdbcType=DOUBLE},
+      </if>
+      <if test="fdbalance != null">
+        #{fdbalance,jdbcType=DOUBLE},
+      </if>
+      <if test="tjbalance != null">
+        #{tjbalance,jdbcType=DOUBLE},
+      </if>
+      <if test="ajbalance != null">
+        #{ajbalance,jdbcType=DOUBLE},
+      </if>
+      <if test="adbalance != null">
+        #{adbalance,jdbcType=DOUBLE},
+      </if>
+      <if test="ljbalance != null">
+        #{ljbalance,jdbcType=DOUBLE},
+      </if>
+      <if test="ldbalance != null">
+        #{ldbalance,jdbcType=DOUBLE},
+      </if>
+      <if test="expect != null">
+        #{expect,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null">
+        #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="tdbalance != null">
+        #{tdbalance,jdbcType=DOUBLE},
+      </if>
+      <if test="company != null">
+        #{company,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rg.Domain.Bamount">
+    update bamount
+    <set>
+      <if test="ecode != null">
+        Ecode = #{ecode,jdbcType=VARCHAR},
+      </if>
+      <if test="ename != null">
+        Ename = #{ename,jdbcType=VARCHAR},
+      </if>
+      <if test="currency != null">
+        Currency = #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="fjbalance != null">
+        FjBalance = #{fjbalance,jdbcType=DOUBLE},
+      </if>
+      <if test="fdbalance != null">
+        FdBalance = #{fdbalance,jdbcType=DOUBLE},
+      </if>
+      <if test="tjbalance != null">
+        TjBalance = #{tjbalance,jdbcType=DOUBLE},
+      </if>
+      <if test="ajbalance != null">
+        AjBalance = #{ajbalance,jdbcType=DOUBLE},
+      </if>
+      <if test="adbalance != null">
+        AdBalance = #{adbalance,jdbcType=DOUBLE},
+      </if>
+      <if test="ljbalance != null">
+        LjBalance = #{ljbalance,jdbcType=DOUBLE},
+      </if>
+      <if test="ldbalance != null">
+        LdBalance = #{ldbalance,jdbcType=DOUBLE},
+      </if>
+      <if test="expect != null">
+        Expect = #{expect,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null">
+        Year = #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="tdbalance != null">
+        TdBalance = #{tdbalance,jdbcType=DOUBLE},
+      </if>
+      <if test="company != null">
+        Company = #{company,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rg.Domain.Bamount">
+    update bamount
+    set Ecode = #{ecode,jdbcType=VARCHAR},
+      Ename = #{ename,jdbcType=VARCHAR},
+      Currency = #{currency,jdbcType=VARCHAR},
+      FjBalance = #{fjbalance,jdbcType=DOUBLE},
+      FdBalance = #{fdbalance,jdbcType=DOUBLE},
+      TjBalance = #{tjbalance,jdbcType=DOUBLE},
+      AjBalance = #{ajbalance,jdbcType=DOUBLE},
+      AdBalance = #{adbalance,jdbcType=DOUBLE},
+      LjBalance = #{ljbalance,jdbcType=DOUBLE},
+      LdBalance = #{ldbalance,jdbcType=DOUBLE},
+      Expect = #{expect,jdbcType=VARCHAR},
+      Year = #{year,jdbcType=VARCHAR},
+      TdBalance = #{tdbalance,jdbcType=DOUBLE},
+      Company = #{company,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

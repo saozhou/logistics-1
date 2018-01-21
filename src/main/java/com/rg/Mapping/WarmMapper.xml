@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rg.IDao.WarmMapper">
+  <resultMap id="BaseResultMap" type="com.rg.Domain.Warm">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="Subject" jdbcType="VARCHAR" property="subject" />
+    <result column="Hprice" jdbcType="DOUBLE" property="hprice" />
+    <result column="Mtype" jdbcType="VARCHAR" property="mtype" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, Subject, Hprice, Mtype
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from warm
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from warm
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.rg.Domain.Warm">
+    insert into warm (Id, Subject, Hprice, 
+      Mtype)
+    values (#{id,jdbcType=INTEGER}, #{subject,jdbcType=VARCHAR}, #{hprice,jdbcType=DOUBLE}, 
+      #{mtype,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rg.Domain.Warm">
+    insert into warm
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="subject != null">
+        Subject,
+      </if>
+      <if test="hprice != null">
+        Hprice,
+      </if>
+      <if test="mtype != null">
+        Mtype,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="subject != null">
+        #{subject,jdbcType=VARCHAR},
+      </if>
+      <if test="hprice != null">
+        #{hprice,jdbcType=DOUBLE},
+      </if>
+      <if test="mtype != null">
+        #{mtype,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rg.Domain.Warm">
+    update warm
+    <set>
+      <if test="subject != null">
+        Subject = #{subject,jdbcType=VARCHAR},
+      </if>
+      <if test="hprice != null">
+        Hprice = #{hprice,jdbcType=DOUBLE},
+      </if>
+      <if test="mtype != null">
+        Mtype = #{mtype,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rg.Domain.Warm">
+    update warm
+    set Subject = #{subject,jdbcType=VARCHAR},
+      Hprice = #{hprice,jdbcType=DOUBLE},
+      Mtype = #{mtype,jdbcType=VARCHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

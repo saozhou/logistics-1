@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rg.IDao.EmployeeMapper">
+  <resultMap id="BaseResultMap" type="com.rg.Domain.Employee">
+    <id column="Eid" jdbcType="VARCHAR" property="eid" />
+    <result column="Ename" jdbcType="VARCHAR" property="ename" />
+    <result column="Sex" jdbcType="VARCHAR" property="sex" />
+    <result column="Age" jdbcType="VARCHAR" property="age" />
+    <result column="Picture" jdbcType="VARCHAR" property="picture" />
+    <result column="Bday" jdbcType="VARCHAR" property="bday" />
+    <result column="Nation" jdbcType="VARCHAR" property="nation" />
+    <result column="Wex" jdbcType="VARCHAR" property="wex" />
+    <result column="Jday" jdbcType="VARCHAR" property="jday" />
+    <result column="Estatus" jdbcType="VARCHAR" property="estatus" />
+    <result column="Esalary" jdbcType="DOUBLE" property="esalary" />
+    <result column="Eposition" jdbcType="VARCHAR" property="eposition" />
+    <result column="Tnumber" jdbcType="VARCHAR" property="tnumber" />
+    <result column="IdCard" jdbcType="VARCHAR" property="idcard" />
+    <result column="Bplace" jdbcType="VARCHAR" property="bplace" />
+    <result column="Mstatus" jdbcType="VARCHAR" property="mstatus" />
+    <result column="Education" jdbcType="VARCHAR" property="education" />
+    <result column="Coperson" jdbcType="VARCHAR" property="coperson" />
+    <result column="Conumber" jdbcType="VARCHAR" property="conumber" />
+    <result column="Evalid" jdbcType="VARCHAR" property="evalid" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="Password" jdbcType="VARCHAR" property="password" />
+    <result column="Epower" jdbcType="INTEGER" property="epower" />
+    <result column="Company" jdbcType="VARCHAR" property="company" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Eid, Ename, Sex, Age, Picture, Bday, Nation, Wex, Jday, Estatus, Esalary, Eposition, 
+    Tnumber, IdCard, Bplace, Mstatus, Education, Coperson, Conumber, Evalid, username, 
+    Password, Epower, Company
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from employee
+    where Eid = #{eid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from employee
+    where Eid = #{eid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.rg.Domain.Employee">
+    insert into employee (Eid, Ename, Sex, 
+      Age, Picture, Bday, 
+      Nation, Wex, Jday, 
+      Estatus, Esalary, Eposition, 
+      Tnumber, IdCard, Bplace, 
+      Mstatus, Education, Coperson, 
+      Conumber, Evalid, username, 
+      Password, Epower, Company
+      )
+    values (#{eid,jdbcType=VARCHAR}, #{ename,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, 
+      #{age,jdbcType=VARCHAR}, #{picture,jdbcType=VARCHAR}, #{bday,jdbcType=VARCHAR}, 
+      #{nation,jdbcType=VARCHAR}, #{wex,jdbcType=VARCHAR}, #{jday,jdbcType=VARCHAR}, 
+      #{estatus,jdbcType=VARCHAR}, #{esalary,jdbcType=DOUBLE}, #{eposition,jdbcType=VARCHAR}, 
+      #{tnumber,jdbcType=VARCHAR}, #{idcard,jdbcType=VARCHAR}, #{bplace,jdbcType=VARCHAR}, 
+      #{mstatus,jdbcType=VARCHAR}, #{education,jdbcType=VARCHAR}, #{coperson,jdbcType=VARCHAR}, 
+      #{conumber,jdbcType=VARCHAR}, #{evalid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{epower,jdbcType=INTEGER}, #{company,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.rg.Domain.Employee">
+    insert into employee
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="eid != null">
+        Eid,
+      </if>
+      <if test="ename != null">
+        Ename,
+      </if>
+      <if test="sex != null">
+        Sex,
+      </if>
+      <if test="age != null">
+        Age,
+      </if>
+      <if test="picture != null">
+        Picture,
+      </if>
+      <if test="bday != null">
+        Bday,
+      </if>
+      <if test="nation != null">
+        Nation,
+      </if>
+      <if test="wex != null">
+        Wex,
+      </if>
+      <if test="jday != null">
+        Jday,
+      </if>
+      <if test="estatus != null">
+        Estatus,
+      </if>
+      <if test="esalary != null">
+        Esalary,
+      </if>
+      <if test="eposition != null">
+        Eposition,
+      </if>
+      <if test="tnumber != null">
+        Tnumber,
+      </if>
+      <if test="idcard != null">
+        IdCard,
+      </if>
+      <if test="bplace != null">
+        Bplace,
+      </if>
+      <if test="mstatus != null">
+        Mstatus,
+      </if>
+      <if test="education != null">
+        Education,
+      </if>
+      <if test="coperson != null">
+        Coperson,
+      </if>
+      <if test="conumber != null">
+        Conumber,
+      </if>
+      <if test="evalid != null">
+        Evalid,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="password != null">
+        Password,
+      </if>
+      <if test="epower != null">
+        Epower,
+      </if>
+      <if test="company != null">
+        Company,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="eid != null">
+        #{eid,jdbcType=VARCHAR},
+      </if>
+      <if test="ename != null">
+        #{ename,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        #{age,jdbcType=VARCHAR},
+      </if>
+      <if test="picture != null">
+        #{picture,jdbcType=VARCHAR},
+      </if>
+      <if test="bday != null">
+        #{bday,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null">
+        #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="wex != null">
+        #{wex,jdbcType=VARCHAR},
+      </if>
+      <if test="jday != null">
+        #{jday,jdbcType=VARCHAR},
+      </if>
+      <if test="estatus != null">
+        #{estatus,jdbcType=VARCHAR},
+      </if>
+      <if test="esalary != null">
+        #{esalary,jdbcType=DOUBLE},
+      </if>
+      <if test="eposition != null">
+        #{eposition,jdbcType=VARCHAR},
+      </if>
+      <if test="tnumber != null">
+        #{tnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="idcard != null">
+        #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="bplace != null">
+        #{bplace,jdbcType=VARCHAR},
+      </if>
+      <if test="mstatus != null">
+        #{mstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null">
+        #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="coperson != null">
+        #{coperson,jdbcType=VARCHAR},
+      </if>
+      <if test="conumber != null">
+        #{conumber,jdbcType=VARCHAR},
+      </if>
+      <if test="evalid != null">
+        #{evalid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="epower != null">
+        #{epower,jdbcType=INTEGER},
+      </if>
+      <if test="company != null">
+        #{company,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rg.Domain.Employee">
+    update employee
+    <set>
+      <if test="ename != null">
+        Ename = #{ename,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        Sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        Age = #{age,jdbcType=VARCHAR},
+      </if>
+      <if test="picture != null">
+        Picture = #{picture,jdbcType=VARCHAR},
+      </if>
+      <if test="bday != null">
+        Bday = #{bday,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null">
+        Nation = #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="wex != null">
+        Wex = #{wex,jdbcType=VARCHAR},
+      </if>
+      <if test="jday != null">
+        Jday = #{jday,jdbcType=VARCHAR},
+      </if>
+      <if test="estatus != null">
+        Estatus = #{estatus,jdbcType=VARCHAR},
+      </if>
+      <if test="esalary != null">
+        Esalary = #{esalary,jdbcType=DOUBLE},
+      </if>
+      <if test="eposition != null">
+        Eposition = #{eposition,jdbcType=VARCHAR},
+      </if>
+      <if test="tnumber != null">
+        Tnumber = #{tnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="idcard != null">
+        IdCard = #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="bplace != null">
+        Bplace = #{bplace,jdbcType=VARCHAR},
+      </if>
+      <if test="mstatus != null">
+        Mstatus = #{mstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null">
+        Education = #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="coperson != null">
+        Coperson = #{coperson,jdbcType=VARCHAR},
+      </if>
+      <if test="conumber != null">
+        Conumber = #{conumber,jdbcType=VARCHAR},
+      </if>
+      <if test="evalid != null">
+        Evalid = #{evalid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        Password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="epower != null">
+        Epower = #{epower,jdbcType=INTEGER},
+      </if>
+      <if test="company != null">
+        Company = #{company,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Eid = #{eid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rg.Domain.Employee">
+    update employee
+    set Ename = #{ename,jdbcType=VARCHAR},
+      Sex = #{sex,jdbcType=VARCHAR},
+      Age = #{age,jdbcType=VARCHAR},
+      Picture = #{picture,jdbcType=VARCHAR},
+      Bday = #{bday,jdbcType=VARCHAR},
+      Nation = #{nation,jdbcType=VARCHAR},
+      Wex = #{wex,jdbcType=VARCHAR},
+      Jday = #{jday,jdbcType=VARCHAR},
+      Estatus = #{estatus,jdbcType=VARCHAR},
+      Esalary = #{esalary,jdbcType=DOUBLE},
+      Eposition = #{eposition,jdbcType=VARCHAR},
+      Tnumber = #{tnumber,jdbcType=VARCHAR},
+      IdCard = #{idcard,jdbcType=VARCHAR},
+      Bplace = #{bplace,jdbcType=VARCHAR},
+      Mstatus = #{mstatus,jdbcType=VARCHAR},
+      Education = #{education,jdbcType=VARCHAR},
+      Coperson = #{coperson,jdbcType=VARCHAR},
+      Conumber = #{conumber,jdbcType=VARCHAR},
+      Evalid = #{evalid,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR},
+      Password = #{password,jdbcType=VARCHAR},
+      Epower = #{epower,jdbcType=INTEGER},
+      Company = #{company,jdbcType=VARCHAR}
+    where Eid = #{eid,jdbcType=VARCHAR}
+  </update>
+</mapper>
