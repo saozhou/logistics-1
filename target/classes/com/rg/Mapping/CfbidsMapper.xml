@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rg.IDao.CfbidsMapper">
+  <resultMap id="BaseResultMap" type="com.rg.Domain.Cfbids">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="Qgoods" jdbcType="DOUBLE" property="qgoods" />
+    <result column="weight" jdbcType="DOUBLE" property="weight" />
+    <result column="Packing" jdbcType="VARCHAR" property="packing" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="Ptype" jdbcType="VARCHAR" property="ptype" />
+    <result column="Spec" jdbcType="VARCHAR" property="spec" />
+    <result column="Caddress" jdbcType="VARCHAR" property="caddress" />
+    <result column="Raddress" jdbcType="VARCHAR" property="raddress" />
+    <result column="Bnumber" jdbcType="INTEGER" property="bnumber" />
+    <result column="Iname" jdbcType="VARCHAR" property="iname" />
+    <result column="Ptime" jdbcType="VARCHAR" property="ptime" />
+    <result column="Ctime" jdbcType="VARCHAR" property="ctime" />
+    <result column="IsOver" jdbcType="VARCHAR" property="isover" />
+    <result column="Company" jdbcType="VARCHAR" property="company" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, Qgoods, weight, Packing, url, Ptype, Spec, Caddress, Raddress, Bnumber, Iname, 
+    Ptime, Ctime, IsOver, Company
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from cfbids
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from cfbids
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.rg.Domain.Cfbids">
+    insert into cfbids (id, Qgoods, weight, 
+      Packing, url, Ptype, 
+      Spec, Caddress, Raddress, 
+      Bnumber, Iname, Ptime, 
+      Ctime, IsOver, Company
+      )
+    values (#{id,jdbcType=INTEGER}, #{qgoods,jdbcType=DOUBLE}, #{weight,jdbcType=DOUBLE}, 
+      #{packing,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, #{ptype,jdbcType=VARCHAR}, 
+      #{spec,jdbcType=VARCHAR}, #{caddress,jdbcType=VARCHAR}, #{raddress,jdbcType=VARCHAR}, 
+      #{bnumber,jdbcType=INTEGER}, #{iname,jdbcType=VARCHAR}, #{ptime,jdbcType=VARCHAR}, 
+      #{ctime,jdbcType=VARCHAR}, #{isover,jdbcType=VARCHAR}, #{company,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.rg.Domain.Cfbids">
+    insert into cfbids
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="qgoods != null">
+        Qgoods,
+      </if>
+      <if test="weight != null">
+        weight,
+      </if>
+      <if test="packing != null">
+        Packing,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+      <if test="ptype != null">
+        Ptype,
+      </if>
+      <if test="spec != null">
+        Spec,
+      </if>
+      <if test="caddress != null">
+        Caddress,
+      </if>
+      <if test="raddress != null">
+        Raddress,
+      </if>
+      <if test="bnumber != null">
+        Bnumber,
+      </if>
+      <if test="iname != null">
+        Iname,
+      </if>
+      <if test="ptime != null">
+        Ptime,
+      </if>
+      <if test="ctime != null">
+        Ctime,
+      </if>
+      <if test="isover != null">
+        IsOver,
+      </if>
+      <if test="company != null">
+        Company,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="qgoods != null">
+        #{qgoods,jdbcType=DOUBLE},
+      </if>
+      <if test="weight != null">
+        #{weight,jdbcType=DOUBLE},
+      </if>
+      <if test="packing != null">
+        #{packing,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="ptype != null">
+        #{ptype,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null">
+        #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="caddress != null">
+        #{caddress,jdbcType=VARCHAR},
+      </if>
+      <if test="raddress != null">
+        #{raddress,jdbcType=VARCHAR},
+      </if>
+      <if test="bnumber != null">
+        #{bnumber,jdbcType=INTEGER},
+      </if>
+      <if test="iname != null">
+        #{iname,jdbcType=VARCHAR},
+      </if>
+      <if test="ptime != null">
+        #{ptime,jdbcType=VARCHAR},
+      </if>
+      <if test="ctime != null">
+        #{ctime,jdbcType=VARCHAR},
+      </if>
+      <if test="isover != null">
+        #{isover,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        #{company,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rg.Domain.Cfbids">
+    update cfbids
+    <set>
+      <if test="qgoods != null">
+        Qgoods = #{qgoods,jdbcType=DOUBLE},
+      </if>
+      <if test="weight != null">
+        weight = #{weight,jdbcType=DOUBLE},
+      </if>
+      <if test="packing != null">
+        Packing = #{packing,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="ptype != null">
+        Ptype = #{ptype,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null">
+        Spec = #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="caddress != null">
+        Caddress = #{caddress,jdbcType=VARCHAR},
+      </if>
+      <if test="raddress != null">
+        Raddress = #{raddress,jdbcType=VARCHAR},
+      </if>
+      <if test="bnumber != null">
+        Bnumber = #{bnumber,jdbcType=INTEGER},
+      </if>
+      <if test="iname != null">
+        Iname = #{iname,jdbcType=VARCHAR},
+      </if>
+      <if test="ptime != null">
+        Ptime = #{ptime,jdbcType=VARCHAR},
+      </if>
+      <if test="ctime != null">
+        Ctime = #{ctime,jdbcType=VARCHAR},
+      </if>
+      <if test="isover != null">
+        IsOver = #{isover,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        Company = #{company,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rg.Domain.Cfbids">
+    update cfbids
+    set Qgoods = #{qgoods,jdbcType=DOUBLE},
+      weight = #{weight,jdbcType=DOUBLE},
+      Packing = #{packing,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      Ptype = #{ptype,jdbcType=VARCHAR},
+      Spec = #{spec,jdbcType=VARCHAR},
+      Caddress = #{caddress,jdbcType=VARCHAR},
+      Raddress = #{raddress,jdbcType=VARCHAR},
+      Bnumber = #{bnumber,jdbcType=INTEGER},
+      Iname = #{iname,jdbcType=VARCHAR},
+      Ptime = #{ptime,jdbcType=VARCHAR},
+      Ctime = #{ctime,jdbcType=VARCHAR},
+      IsOver = #{isover,jdbcType=VARCHAR},
+      Company = #{company,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

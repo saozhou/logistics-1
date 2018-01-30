@@ -1,5 +1,7 @@
 package com.rg.IDao;
 
+import java.util.List;
+
 import com.rg.Domain.FileRecord;
 
 public interface FileRecordMapper {
@@ -9,9 +11,19 @@ public interface FileRecordMapper {
 
     int insertSelective(FileRecord record);
 
-    FileRecord selectByPrimaryKey(Integer id);
-
     int updateByPrimaryKeySelective(FileRecord record);
 
     int updateByPrimaryKey(FileRecord record);
+
+	FileRecord selectByPrimaryKey(String fcode);
+
+	void setFileRecordUs(String string, String string2);
+
+	List<FileRecord> likeSelectById(String fcode);
+
+	List<FileRecord> likeSelectByName(String fname);
+
+	List<FileRecord> selectAll();
+
+	List<FileRecord> selectByDay(String startDay, String endDay);
 }

@@ -11,6 +11,10 @@ public class FileRecord {
 
     private String furl;
 
+    private String fcode;
+
+    private String iseffective;
+
     public Integer getId() {
         return id;
     }
@@ -49,5 +53,21 @@ public class FileRecord {
 
     public void setFurl(String furl) {
         this.furl = furl == null ? null : furl.trim();
+    }
+
+    public String getFcode() {
+        return fcode;
+    }
+
+    public void setFcode(String fcode) {
+        this.fcode = fcode == null ? null : fcode.trim();
+    }
+
+    public String getIseffective() {
+        return iseffective;
+    }
+
+    public void setIseffective(String iseffective) {
+        this.iseffective = iseffective == null ? null : iseffective.trim();
     }
 }

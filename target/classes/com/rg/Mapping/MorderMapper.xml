@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rg.IDao.MorderMapper">
+  <resultMap id="BaseResultMap" type="com.rg.Domain.Morder">
+    <id column="Cnumber" jdbcType="VARCHAR" property="cnumber" />
+    <result column="Cname" jdbcType="VARCHAR" property="cname" />
+    <result column="Caddress" jdbcType="VARCHAR" property="caddress" />
+    <result column="Tnumber" jdbcType="VARCHAR" property="tnumber" />
+    <result column="Spec" jdbcType="VARCHAR" property="spec" />
+    <result column="Gbrand" jdbcType="VARCHAR" property="gbrand" />
+    <result column="packing" jdbcType="VARCHAR" property="packing" />
+    <result column="Stype" jdbcType="VARCHAR" property="stype" />
+    <result column="Sprice" jdbcType="DOUBLE" property="sprice" />
+    <result column="Qgoods" jdbcType="DOUBLE" property="qgoods" />
+    <result column="Roprice" jdbcType="DOUBLE" property="roprice" />
+    <result column="Rnumber" jdbcType="DOUBLE" property="rnumber" />
+    <result column="Etime" jdbcType="VARCHAR" property="etime" />
+    <result column="IsOver" jdbcType="VARCHAR" property="isover" />
+    <result column="unit" jdbcType="VARCHAR" property="unit" />
+    <result column="Rate" jdbcType="DOUBLE" property="rate" />
+    <result column="Company" jdbcType="VARCHAR" property="company" />
+    <result column="IsApprove" jdbcType="VARCHAR" property="isapprove" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Cnumber, Cname, Caddress, Tnumber, Spec, Gbrand, packing, Stype, Sprice, Qgoods, 
+    Roprice, Rnumber, Etime, IsOver, unit, Rate, Company, IsApprove
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from morder
+    where Cnumber = #{cnumber,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from morder
+    where Cnumber = #{cnumber,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.rg.Domain.Morder">
+    insert into morder (Cnumber, Cname, Caddress, 
+      Tnumber, Spec, Gbrand, 
+      packing, Stype, Sprice, 
+      Qgoods, Roprice, Rnumber, 
+      Etime, IsOver, unit, 
+      Rate, Company, IsApprove
+      )
+    values (#{cnumber,jdbcType=VARCHAR}, #{cname,jdbcType=VARCHAR}, #{caddress,jdbcType=VARCHAR}, 
+      #{tnumber,jdbcType=VARCHAR}, #{spec,jdbcType=VARCHAR}, #{gbrand,jdbcType=VARCHAR}, 
+      #{packing,jdbcType=VARCHAR}, #{stype,jdbcType=VARCHAR}, #{sprice,jdbcType=DOUBLE}, 
+      #{qgoods,jdbcType=DOUBLE}, #{roprice,jdbcType=DOUBLE}, #{rnumber,jdbcType=DOUBLE}, 
+      #{etime,jdbcType=VARCHAR}, #{isover,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, 
+      #{rate,jdbcType=DOUBLE}, #{company,jdbcType=VARCHAR}, #{isapprove,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.rg.Domain.Morder">
+    insert into morder
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cnumber != null">
+        Cnumber,
+      </if>
+      <if test="cname != null">
+        Cname,
+      </if>
+      <if test="caddress != null">
+        Caddress,
+      </if>
+      <if test="tnumber != null">
+        Tnumber,
+      </if>
+      <if test="spec != null">
+        Spec,
+      </if>
+      <if test="gbrand != null">
+        Gbrand,
+      </if>
+      <if test="packing != null">
+        packing,
+      </if>
+      <if test="stype != null">
+        Stype,
+      </if>
+      <if test="sprice != null">
+        Sprice,
+      </if>
+      <if test="qgoods != null">
+        Qgoods,
+      </if>
+      <if test="roprice != null">
+        Roprice,
+      </if>
+      <if test="rnumber != null">
+        Rnumber,
+      </if>
+      <if test="etime != null">
+        Etime,
+      </if>
+      <if test="isover != null">
+        IsOver,
+      </if>
+      <if test="unit != null">
+        unit,
+      </if>
+      <if test="rate != null">
+        Rate,
+      </if>
+      <if test="company != null">
+        Company,
+      </if>
+      <if test="isapprove != null">
+        IsApprove,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cnumber != null">
+        #{cnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="cname != null">
+        #{cname,jdbcType=VARCHAR},
+      </if>
+      <if test="caddress != null">
+        #{caddress,jdbcType=VARCHAR},
+      </if>
+      <if test="tnumber != null">
+        #{tnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null">
+        #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="gbrand != null">
+        #{gbrand,jdbcType=VARCHAR},
+      </if>
+      <if test="packing != null">
+        #{packing,jdbcType=VARCHAR},
+      </if>
+      <if test="stype != null">
+        #{stype,jdbcType=VARCHAR},
+      </if>
+      <if test="sprice != null">
+        #{sprice,jdbcType=DOUBLE},
+      </if>
+      <if test="qgoods != null">
+        #{qgoods,jdbcType=DOUBLE},
+      </if>
+      <if test="roprice != null">
+        #{roprice,jdbcType=DOUBLE},
+      </if>
+      <if test="rnumber != null">
+        #{rnumber,jdbcType=DOUBLE},
+      </if>
+      <if test="etime != null">
+        #{etime,jdbcType=VARCHAR},
+      </if>
+      <if test="isover != null">
+        #{isover,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null">
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="rate != null">
+        #{rate,jdbcType=DOUBLE},
+      </if>
+      <if test="company != null">
+        #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="isapprove != null">
+        #{isapprove,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rg.Domain.Morder">
+    update morder
+    <set>
+      <if test="cname != null">
+        Cname = #{cname,jdbcType=VARCHAR},
+      </if>
+      <if test="caddress != null">
+        Caddress = #{caddress,jdbcType=VARCHAR},
+      </if>
+      <if test="tnumber != null">
+        Tnumber = #{tnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null">
+        Spec = #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="gbrand != null">
+        Gbrand = #{gbrand,jdbcType=VARCHAR},
+      </if>
+      <if test="packing != null">
+        packing = #{packing,jdbcType=VARCHAR},
+      </if>
+      <if test="stype != null">
+        Stype = #{stype,jdbcType=VARCHAR},
+      </if>
+      <if test="sprice != null">
+        Sprice = #{sprice,jdbcType=DOUBLE},
+      </if>
+      <if test="qgoods != null">
+        Qgoods = #{qgoods,jdbcType=DOUBLE},
+      </if>
+      <if test="roprice != null">
+        Roprice = #{roprice,jdbcType=DOUBLE},
+      </if>
+      <if test="rnumber != null">
+        Rnumber = #{rnumber,jdbcType=DOUBLE},
+      </if>
+      <if test="etime != null">
+        Etime = #{etime,jdbcType=VARCHAR},
+      </if>
+      <if test="isover != null">
+        IsOver = #{isover,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null">
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="rate != null">
+        Rate = #{rate,jdbcType=DOUBLE},
+      </if>
+      <if test="company != null">
+        Company = #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="isapprove != null">
+        IsApprove = #{isapprove,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Cnumber = #{cnumber,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rg.Domain.Morder">
+    update morder
+    set Cname = #{cname,jdbcType=VARCHAR},
+      Caddress = #{caddress,jdbcType=VARCHAR},
+      Tnumber = #{tnumber,jdbcType=VARCHAR},
+      Spec = #{spec,jdbcType=VARCHAR},
+      Gbrand = #{gbrand,jdbcType=VARCHAR},
+      packing = #{packing,jdbcType=VARCHAR},
+      Stype = #{stype,jdbcType=VARCHAR},
+      Sprice = #{sprice,jdbcType=DOUBLE},
+      Qgoods = #{qgoods,jdbcType=DOUBLE},
+      Roprice = #{roprice,jdbcType=DOUBLE},
+      Rnumber = #{rnumber,jdbcType=DOUBLE},
+      Etime = #{etime,jdbcType=VARCHAR},
+      IsOver = #{isover,jdbcType=VARCHAR},
+      unit = #{unit,jdbcType=VARCHAR},
+      Rate = #{rate,jdbcType=DOUBLE},
+      Company = #{company,jdbcType=VARCHAR},
+      IsApprove = #{isapprove,jdbcType=VARCHAR}
+    where Cnumber = #{cnumber,jdbcType=VARCHAR}
+  </update>
+</mapper>

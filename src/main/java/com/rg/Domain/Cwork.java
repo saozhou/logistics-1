@@ -7,9 +7,11 @@ public class Cwork {
 
     private String ename;
 
-    private String time;
+    private String ctime;
 
     private String place;
+
+    private String company;
 
     public Integer getId() {
         return id;
@@ -35,12 +37,12 @@ public class Cwork {
         this.ename = ename == null ? null : ename.trim();
     }
 
-    public String getTime() {
-        return time;
+    public String getCtime() {
+        return ctime;
     }
 
-    public void setTime(String time) {
-        this.time = time == null ? null : time.trim();
+    public void setCtime(String ctime) {
+        this.ctime = ctime == null ? null : ctime.trim();
     }
 
     public String getPlace() {
@@ -49,5 +51,13 @@ public class Cwork {
 
     public void setPlace(String place) {
         this.place = place == null ? null : place.trim();
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company == null ? null : company.trim();
     }
 }

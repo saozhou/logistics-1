@@ -1,8 +1,6 @@
 package com.rg.Domain;
 
-public class Employee {
-    private String eid;
-
+public class Employee extends EmployeeKey {
     private String ename;
 
     private String sex;
@@ -39,8 +37,6 @@ public class Employee {
 
     private String conumber;
 
-    private String evalid;
-
     private String username;
 
     private String password;
@@ -49,13 +45,7 @@ public class Employee {
 
     private String company;
 
-    public String getEid() {
-        return eid;
-    }
-
-    public void setEid(String eid) {
-        this.eid = eid == null ? null : eid.trim();
-    }
+    private String isapprove;
 
     public String getEname() {
         return ename;
@@ -201,14 +191,6 @@ public class Employee {
         this.conumber = conumber == null ? null : conumber.trim();
     }
 
-    public String getEvalid() {
-        return evalid;
-    }
-
-    public void setEvalid(String evalid) {
-        this.evalid = evalid == null ? null : evalid.trim();
-    }
-
     public String getUsername() {
         return username;
     }
@@ -239,5 +221,13 @@ public class Employee {
 
     public void setCompany(String company) {
         this.company = company == null ? null : company.trim();
+    }
+
+    public String getIsapprove() {
+        return isapprove;
+    }
+
+    public void setIsapprove(String isapprove) {
+        this.isapprove = isapprove == null ? null : isapprove.trim();
     }
 }

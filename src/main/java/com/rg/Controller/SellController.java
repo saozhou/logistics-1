@@ -1,5 +1,8 @@
 package com.rg.Controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -7,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.rg.Domain.Client;
 import com.rg.Service.InventoryService;
 import com.rg.Service.OrderService;
 import com.rg.Service.QuoteService;
@@ -49,7 +53,7 @@ public class SellController {
 	@RequestMapping(value="/checkInventory",method=RequestMethod.POST)
 	@ResponseBody
 	public void checkInventory(){
-		
+	 
 	}
 	/**
 	 * 获取报价信息

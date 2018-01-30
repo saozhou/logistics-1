@@ -1,7 +1,7 @@
 package com.rg.Domain;
 
 public class Driver {
-    private String id;
+    private String driverid;
 
     private String drname;
 
@@ -19,12 +19,12 @@ public class Driver {
 
     private String company;
 
-    public String getId() {
-        return id;
+    public String getDriverid() {
+        return driverid;
     }
 
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
+    public void setDriverid(String driverid) {
+        this.driverid = driverid == null ? null : driverid.trim();
     }
 
     public String getDrname() {

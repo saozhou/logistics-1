@@ -1,5 +1,7 @@
 package com.rg.IDao;
 
+import java.util.List;
+
 import com.rg.Domain.Border;
 
 public interface BorderMapper {
@@ -14,4 +16,8 @@ public interface BorderMapper {
     int updateByPrimaryKeySelective(Border record);
 
     int updateByPrimaryKey(Border record);
+
+	List<Border> selectBorder(String id, int i);
+
+	List<Border> selectAll();
 }

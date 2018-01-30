@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rg.IDao.ProfitMapper">
+  <resultMap id="BaseResultMap" type="com.rg.Domain.Profit">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="Scode" jdbcType="VARCHAR" property="scode" />
+    <result column="Yamount" jdbcType="DOUBLE" property="yamount" />
+    <result column="Mamount" jdbcType="DOUBLE" property="mamount" />
+    <result column="Year" jdbcType="VARCHAR" property="year" />
+    <result column="Month" jdbcType="VARCHAR" property="month" />
+    <result column="Time" jdbcType="VARCHAR" property="time" />
+    <result column="Company" jdbcType="VARCHAR" property="company" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, Scode, Yamount, Mamount, Year, Month, Time, Company
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from profit
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from profit
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.rg.Domain.Profit">
+    insert into profit (ID, Scode, Yamount, 
+      Mamount, Year, Month, 
+      Time, Company)
+    values (#{id,jdbcType=INTEGER}, #{scode,jdbcType=VARCHAR}, #{yamount,jdbcType=DOUBLE}, 
+      #{mamount,jdbcType=DOUBLE}, #{year,jdbcType=VARCHAR}, #{month,jdbcType=VARCHAR}, 
+      #{time,jdbcType=VARCHAR}, #{company,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rg.Domain.Profit">
+    insert into profit
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="scode != null">
+        Scode,
+      </if>
+      <if test="yamount != null">
+        Yamount,
+      </if>
+      <if test="mamount != null">
+        Mamount,
+      </if>
+      <if test="year != null">
+        Year,
+      </if>
+      <if test="month != null">
+        Month,
+      </if>
+      <if test="time != null">
+        Time,
+      </if>
+      <if test="company != null">
+        Company,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="scode != null">
+        #{scode,jdbcType=VARCHAR},
+      </if>
+      <if test="yamount != null">
+        #{yamount,jdbcType=DOUBLE},
+      </if>
+      <if test="mamount != null">
+        #{mamount,jdbcType=DOUBLE},
+      </if>
+      <if test="year != null">
+        #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="month != null">
+        #{month,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        #{company,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rg.Domain.Profit">
+    update profit
+    <set>
+      <if test="scode != null">
+        Scode = #{scode,jdbcType=VARCHAR},
+      </if>
+      <if test="yamount != null">
+        Yamount = #{yamount,jdbcType=DOUBLE},
+      </if>
+      <if test="mamount != null">
+        Mamount = #{mamount,jdbcType=DOUBLE},
+      </if>
+      <if test="year != null">
+        Year = #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="month != null">
+        Month = #{month,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        Time = #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        Company = #{company,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rg.Domain.Profit">
+    update profit
+    set Scode = #{scode,jdbcType=VARCHAR},
+      Yamount = #{yamount,jdbcType=DOUBLE},
+      Mamount = #{mamount,jdbcType=DOUBLE},
+      Year = #{year,jdbcType=VARCHAR},
+      Month = #{month,jdbcType=VARCHAR},
+      Time = #{time,jdbcType=VARCHAR},
+      Company = #{company,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

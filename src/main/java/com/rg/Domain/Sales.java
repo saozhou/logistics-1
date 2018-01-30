@@ -17,6 +17,8 @@ public class Sales {
 
     private Double dis;
 
+    private String company;
+
     public Integer getId() {
         return id;
     }
@@ -79,5 +81,13 @@ public class Sales {
 
     public void setDis(Double dis) {
         this.dis = dis;
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company == null ? null : company.trim();
     }
 }

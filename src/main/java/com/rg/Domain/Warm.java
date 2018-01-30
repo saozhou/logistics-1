@@ -3,11 +3,13 @@ package com.rg.Domain;
 public class Warm {
     private Integer id;
 
-    private String subject;
+    private String warm;
 
     private Double hprice;
 
     private String mtype;
+
+    private String thtype;
 
     public Integer getId() {
         return id;
@@ -17,12 +19,12 @@ public class Warm {
         this.id = id;
     }
 
-    public String getSubject() {
-        return subject;
+    public String getWarm() {
+        return warm;
     }
 
-    public void setSubject(String subject) {
-        this.subject = subject == null ? null : subject.trim();
+    public void setWarm(String warm) {
+        this.warm = warm == null ? null : warm.trim();
     }
 
     public Double getHprice() {
@@ -39,5 +41,13 @@ public class Warm {
 
     public void setMtype(String mtype) {
         this.mtype = mtype == null ? null : mtype.trim();
+    }
+
+    public String getThtype() {
+        return thtype;
+    }
+
+    public void setThtype(String thtype) {
+        this.thtype = thtype == null ? null : thtype.trim();
     }
 }

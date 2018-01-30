@@ -3,7 +3,7 @@ package com.rg.Domain;
 public class Border {
     private String bnumber;
 
-    private String bname;
+    private String name;
 
     private String baddress;
 
@@ -34,6 +34,8 @@ public class Border {
     private String company;
 
     private String isapprove;
+    
+    private String id;
 
     public String getBnumber() {
         return bnumber;
@@ -42,16 +44,24 @@ public class Border {
     public void setBnumber(String bnumber) {
         this.bnumber = bnumber == null ? null : bnumber.trim();
     }
+ 
+    public String getName() {
+		return name;
+	}
 
-    public String getBname() {
-        return bname;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public void setBname(String bname) {
-        this.bname = bname == null ? null : bname.trim();
-    }
+	public String getId() {
+		return id;
+	}
 
-    public String getBaddress() {
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getBaddress() {
         return baddress;
     }
 

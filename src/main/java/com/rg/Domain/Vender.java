@@ -1,73 +1,96 @@
 package com.rg.Domain;
 
-public class Vender {
-    private String vid;
+public class Vender extends Customer{
+     	private String id;
 
-    private String vname;
+	    private String name;
 
-    private Double count;
+	    private Double credit;
 
-    private Double lcount;
+	    private Double lcredit;
 
-    private String tnumber;
+	    private String tnumber;
 
-    private String place;
+	    private String place;
 
-    private String address;
+	    private String address;
 
-    public String getVid() {
-        return vid;
-    }
+	    private String iseffective;
 
-    public void setVid(String vid) {
-        this.vid = vid == null ? null : vid.trim();
-    }
+	    private String company;
 
-    public String getVname() {
-        return vname;
-    }
+		public String getId() {
+			return id;
+		}
 
-    public void setVname(String vname) {
-        this.vname = vname == null ? null : vname.trim();
-    }
+		public void setId(String id) {
+			this.id = id;
+		}
 
-    public Double getCount() {
-        return count;
-    }
+		public String getName() {
+			return name;
+		}
 
-    public void setCount(Double count) {
-        this.count = count;
-    }
+		public void setName(String name) {
+			this.name = name;
+		}
 
-    public Double getLcount() {
-        return lcount;
-    }
+		public Double getCredit() {
+			return credit;
+		}
 
-    public void setLcount(Double lcount) {
-        this.lcount = lcount;
-    }
+		public void setCredit(Double credit) {
+			this.credit = credit;
+		}
 
-    public String getTnumber() {
-        return tnumber;
-    }
+		public Double getLcredit() {
+			return lcredit;
+		}
 
-    public void setTnumber(String tnumber) {
-        this.tnumber = tnumber == null ? null : tnumber.trim();
-    }
+		public void setLcredit(Double lcredit) {
+			this.lcredit = lcredit;
+		}
 
-    public String getPlace() {
-        return place;
-    }
+		public String getTnumber() {
+			return tnumber;
+		}
 
-    public void setPlace(String place) {
-        this.place = place == null ? null : place.trim();
-    }
+		public void setTnumber(String tnumber) {
+			this.tnumber = tnumber;
+		}
 
-    public String getAddress() {
-        return address;
-    }
+		public String getPlace() {
+			return place;
+		}
 
-    public void setAddress(String address) {
-        this.address = address == null ? null : address.trim();
-    }
+		public void setPlace(String place) {
+			this.place = place;
+		}
+
+		public String getAddress() {
+			return address;
+		}
+
+		public void setAddress(String address) {
+			this.address = address;
+		}
+ 
+
+		public String getIseffective() {
+			return iseffective;
+		}
+
+		public void setIseffective(String iseffective) {
+			this.iseffective = iseffective;
+		}
+
+		public String getCompany() {
+			return company;
+		}
+
+		public void setCompany(String company) {
+			this.company = company;
+		}
+
+        
 }

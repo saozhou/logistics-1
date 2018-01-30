@@ -7,7 +7,7 @@ public class Msettle {
 
     private String aonumber;
 
-    private String cname;
+    private String vname;
 
     private Double spay;
 
@@ -20,6 +20,8 @@ public class Msettle {
     private String isover;
 
     private String company;
+
+    private String isapprove;
 
     public Integer getId() {
         return id;
@@ -45,12 +47,12 @@ public class Msettle {
         this.aonumber = aonumber == null ? null : aonumber.trim();
     }
 
-    public String getCname() {
-        return cname;
+    public String getVname() {
+        return vname;
     }
 
-    public void setCname(String cname) {
-        this.cname = cname == null ? null : cname.trim();
+    public void setVname(String vname) {
+        this.vname = vname == null ? null : vname.trim();
     }
 
     public Double getSpay() {
@@ -99,5 +101,13 @@ public class Msettle {
 
     public void setCompany(String company) {
         this.company = company == null ? null : company.trim();
+    }
+
+    public String getIsapprove() {
+        return isapprove;
+    }
+
+    public void setIsapprove(String isapprove) {
+        this.isapprove = isapprove == null ? null : isapprove.trim();
     }
 }

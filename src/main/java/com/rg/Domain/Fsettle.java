@@ -21,6 +21,8 @@ public class Fsettle {
 
     private String company;
 
+    private String isapprove;
+
     public Integer getId() {
         return id;
     }
@@ -99,5 +101,13 @@ public class Fsettle {
 
     public void setCompany(String company) {
         this.company = company == null ? null : company.trim();
+    }
+
+    public String getIsapprove() {
+        return isapprove;
+    }
+
+    public void setIsapprove(String isapprove) {
+        this.isapprove = isapprove == null ? null : isapprove.trim();
     }
 }

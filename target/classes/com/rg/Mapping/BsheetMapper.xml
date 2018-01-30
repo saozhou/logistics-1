@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rg.IDao.BsheetMapper">
+  <resultMap id="BaseResultMap" type="com.rg.Domain.Bsheet">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="Fcode" jdbcType="VARCHAR" property="fcode" />
+    <result column="Type" jdbcType="VARCHAR" property="type" />
+    <result column="Cbalance" jdbcType="DOUBLE" property="cbalance" />
+    <result column="Ybalance" jdbcType="DOUBLE" property="ybalance" />
+    <result column="Expect" jdbcType="VARCHAR" property="expect" />
+    <result column="Year" jdbcType="VARCHAR" property="year" />
+    <result column="Company" jdbcType="VARCHAR" property="company" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, Fcode, Type, Cbalance, Ybalance, Expect, Year, Company
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from bsheet
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from bsheet
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.rg.Domain.Bsheet">
+    insert into bsheet (ID, Fcode, Type, 
+      Cbalance, Ybalance, Expect, 
+      Year, Company)
+    values (#{id,jdbcType=INTEGER}, #{fcode,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
+      #{cbalance,jdbcType=DOUBLE}, #{ybalance,jdbcType=DOUBLE}, #{expect,jdbcType=VARCHAR}, 
+      #{year,jdbcType=VARCHAR}, #{company,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rg.Domain.Bsheet">
+    insert into bsheet
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="fcode != null">
+        Fcode,
+      </if>
+      <if test="type != null">
+        Type,
+      </if>
+      <if test="cbalance != null">
+        Cbalance,
+      </if>
+      <if test="ybalance != null">
+        Ybalance,
+      </if>
+      <if test="expect != null">
+        Expect,
+      </if>
+      <if test="year != null">
+        Year,
+      </if>
+      <if test="company != null">
+        Company,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="fcode != null">
+        #{fcode,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="cbalance != null">
+        #{cbalance,jdbcType=DOUBLE},
+      </if>
+      <if test="ybalance != null">
+        #{ybalance,jdbcType=DOUBLE},
+      </if>
+      <if test="expect != null">
+        #{expect,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null">
+        #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        #{company,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rg.Domain.Bsheet">
+    update bsheet
+    <set>
+      <if test="fcode != null">
+        Fcode = #{fcode,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        Type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="cbalance != null">
+        Cbalance = #{cbalance,jdbcType=DOUBLE},
+      </if>
+      <if test="ybalance != null">
+        Ybalance = #{ybalance,jdbcType=DOUBLE},
+      </if>
+      <if test="expect != null">
+        Expect = #{expect,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null">
+        Year = #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        Company = #{company,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rg.Domain.Bsheet">
+    update bsheet
+    set Fcode = #{fcode,jdbcType=VARCHAR},
+      Type = #{type,jdbcType=VARCHAR},
+      Cbalance = #{cbalance,jdbcType=DOUBLE},
+      Ybalance = #{ybalance,jdbcType=DOUBLE},
+      Expect = #{expect,jdbcType=VARCHAR},
+      Year = #{year,jdbcType=VARCHAR},
+      Company = #{company,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

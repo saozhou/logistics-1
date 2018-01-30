@@ -13,6 +13,8 @@ public class Drecords {
 
     private Double money;
 
+    private String company;
+
     public Integer getId() {
         return id;
     }
@@ -59,5 +61,13 @@ public class Drecords {
 
     public void setMoney(Double money) {
         this.money = money;
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company == null ? null : company.trim();
     }
 }

@@ -19,6 +19,10 @@ public class Bsettle {
 
     private String company;
 
+    private String type;
+
+    private String isapprove;
+
     public Integer getId() {
         return id;
     }
@@ -89,5 +93,21 @@ public class Bsettle {
 
     public void setCompany(String company) {
         this.company = company == null ? null : company.trim();
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type == null ? null : type.trim();
+    }
+
+    public String getIsapprove() {
+        return isapprove;
+    }
+
+    public void setIsapprove(String isapprove) {
+        this.isapprove = isapprove == null ? null : isapprove.trim();
     }
 }

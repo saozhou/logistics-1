@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rg.IDao.AbnormalFeeMapper">
+  <resultMap id="BaseResultMap" type="com.rg.Domain.AbnormalFee">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="Vman" jdbcType="VARCHAR" property="vman" />
+    <result column="Type" jdbcType="VARCHAR" property="type" />
+    <result column="Acount" jdbcType="VARCHAR" property="acount" />
+    <result column="isApprove" jdbcType="VARCHAR" property="isapprove" />
+    <result column="isDelete" jdbcType="VARCHAR" property="isdelete" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, Vman, Type, Acount, isApprove, isDelete
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from abnormalfee
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from abnormalfee
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.rg.Domain.AbnormalFee">
+    insert into abnormalfee (ID, Vman, Type, 
+      Acount, isApprove, isDelete
+      )
+    values (#{id,jdbcType=INTEGER}, #{vman,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
+      #{acount,jdbcType=VARCHAR}, #{isapprove,jdbcType=VARCHAR}, #{isdelete,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.rg.Domain.AbnormalFee">
+    insert into abnormalfee
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="vman != null">
+        Vman,
+      </if>
+      <if test="type != null">
+        Type,
+      </if>
+      <if test="acount != null">
+        Acount,
+      </if>
+      <if test="isapprove != null">
+        isApprove,
+      </if>
+      <if test="isdelete != null">
+        isDelete,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="vman != null">
+        #{vman,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="acount != null">
+        #{acount,jdbcType=VARCHAR},
+      </if>
+      <if test="isapprove != null">
+        #{isapprove,jdbcType=VARCHAR},
+      </if>
+      <if test="isdelete != null">
+        #{isdelete,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rg.Domain.AbnormalFee">
+    update abnormalfee
+    <set>
+      <if test="vman != null">
+        Vman = #{vman,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        Type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="acount != null">
+        Acount = #{acount,jdbcType=VARCHAR},
+      </if>
+      <if test="isapprove != null">
+        isApprove = #{isapprove,jdbcType=VARCHAR},
+      </if>
+      <if test="isdelete != null">
+        isDelete = #{isdelete,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rg.Domain.AbnormalFee">
+    update abnormalfee
+    set Vman = #{vman,jdbcType=VARCHAR},
+      Type = #{type,jdbcType=VARCHAR},
+      Acount = #{acount,jdbcType=VARCHAR},
+      isApprove = #{isapprove,jdbcType=VARCHAR},
+      isDelete = #{isdelete,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

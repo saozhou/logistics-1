@@ -21,6 +21,7 @@ import com.rg.Service.RequestService;
  * 
  * 发布招标信息并生成二维码:issueTender()  url="/issueTender"
  * 查看库存:checkInventory()           url="/checkInventory"
+ * 添加实时车辆信息：addvehicleInformation url="/addvehicleInformation"
  * 查看车辆实时信息:vehicleInformation() url="/vehicleInformation"
  * 订单查询:orderInquiry               url="/orderInquiry"
  * 查看车队列表:checkTeamList           url="/checkTeamList"
@@ -64,11 +65,20 @@ public class DispatchController {
 	/**
 	 * 查看车辆实时信息
 	 */
-    @RequestMapping(value="/vehicleInformation",method=RequestMethod.POST)
+    @RequestMapping(value="/addvehicleInformation",method=RequestMethod.POST)
 	@ResponseBody
-    public void vehicleInformation(){
+    public void addvehicleInformation(){
 		
 	}
+    
+    /**
+     * 添加车辆实时信息
+     */
+    @RequestMapping(value="/vehicleInformation",method=RequestMethod.POST)
+   	@ResponseBody
+       public void vehicleInformation(){
+   		
+   	}
     
 	/**
 	 * 订单查询

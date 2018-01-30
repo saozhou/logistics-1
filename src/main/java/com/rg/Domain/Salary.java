@@ -17,6 +17,8 @@ public class Salary {
 
     private Double msalary;
 
+    private String company;
+
     public Integer getId() {
         return id;
     }
@@ -79,5 +81,13 @@ public class Salary {
 
     public void setMsalary(Double msalary) {
         this.msalary = msalary;
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company == null ? null : company.trim();
     }
 }

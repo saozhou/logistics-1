@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rg.IDao.SdictionaryMapper">
+  <resultMap id="BaseResultMap" type="com.rg.Domain.Sdictionary">
+    <id column="Ecode" jdbcType="VARCHAR" property="ecode" />
+    <result column="Ename" jdbcType="VARCHAR" property="ename" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Ecode, Ename
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sdictionary
+    where Ecode = #{ecode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from sdictionary
+    where Ecode = #{ecode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.rg.Domain.Sdictionary">
+    insert into sdictionary (Ecode, Ename)
+    values (#{ecode,jdbcType=VARCHAR}, #{ename,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rg.Domain.Sdictionary">
+    insert into sdictionary
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ecode != null">
+        Ecode,
+      </if>
+      <if test="ename != null">
+        Ename,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ecode != null">
+        #{ecode,jdbcType=VARCHAR},
+      </if>
+      <if test="ename != null">
+        #{ename,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rg.Domain.Sdictionary">
+    update sdictionary
+    <set>
+      <if test="ename != null">
+        Ename = #{ename,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Ecode = #{ecode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rg.Domain.Sdictionary">
+    update sdictionary
+    set Ename = #{ename,jdbcType=VARCHAR}
+    where Ecode = #{ecode,jdbcType=VARCHAR}
+  </update>
+</mapper>

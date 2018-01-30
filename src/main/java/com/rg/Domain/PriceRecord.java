@@ -19,6 +19,8 @@ public class PriceRecord {
 
     private String time;
 
+    private String isapprove;
+
     public Integer getPid() {
         return pid;
     }
@@ -89,5 +91,13 @@ public class PriceRecord {
 
     public void setTime(String time) {
         this.time = time == null ? null : time.trim();
+    }
+
+    public String getIsapprove() {
+        return isapprove;
+    }
+
+    public void setIsapprove(String isapprove) {
+        this.isapprove = isapprove == null ? null : isapprove.trim();
     }
 }

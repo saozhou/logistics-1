@@ -15,7 +15,7 @@ public class Transport {
 
     private String rtime;
 
-    private String bname;
+    private String vname;
 
     private String raddress;
 
@@ -121,12 +121,12 @@ public class Transport {
         this.rtime = rtime == null ? null : rtime.trim();
     }
 
-    public String getBname() {
-        return bname;
+    public String getVname() {
+        return vname;
     }
 
-    public void setBname(String bname) {
-        this.bname = bname == null ? null : bname.trim();
+    public void setVname(String vname) {
+        this.vname = vname == null ? null : vname.trim();
     }
 
     public String getRaddress() {

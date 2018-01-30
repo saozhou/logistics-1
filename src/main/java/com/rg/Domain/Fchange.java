@@ -13,6 +13,8 @@ public class Fchange {
 
     private String company;
 
+    private String isapprove;
+
     public Integer getId() {
         return id;
     }
@@ -59,5 +61,13 @@ public class Fchange {
 
     public void setCompany(String company) {
         this.company = company == null ? null : company.trim();
+    }
+
+    public String getIsapprove() {
+        return isapprove;
+    }
+
+    public void setIsapprove(String isapprove) {
+        this.isapprove = isapprove == null ? null : isapprove.trim();
     }
 }

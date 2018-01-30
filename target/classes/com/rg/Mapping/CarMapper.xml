@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rg.IDao.CarMapper">
+  <resultMap id="BaseResultMap" type="com.rg.Domain.Car">
+    <id column="Pnumber" jdbcType="VARCHAR" property="pnumber" />
+    <result column="Cowner" jdbcType="VARCHAR" property="cowner" />
+    <result column="Tnumber" jdbcType="VARCHAR" property="tnumber" />
+    <result column="Uyear" jdbcType="VARCHAR" property="uyear" />
+    <result column="Load" jdbcType="DOUBLE" property="load" />
+    <result column="Etime" jdbcType="VARCHAR" property="etime" />
+    <result column="IsFree" jdbcType="VARCHAR" property="isfree" />
+    <result column="Company" jdbcType="VARCHAR" property="company" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Pnumber, Cowner, Tnumber, Uyear, Load, Etime, IsFree, Company
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from car
+    where Pnumber = #{pnumber,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from car
+    where Pnumber = #{pnumber,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.rg.Domain.Car">
+    insert into car (Pnumber, Cowner, Tnumber, 
+      Uyear, Load, Etime, 
+      IsFree, Company)
+    values (#{pnumber,jdbcType=VARCHAR}, #{cowner,jdbcType=VARCHAR}, #{tnumber,jdbcType=VARCHAR}, 
+      #{uyear,jdbcType=VARCHAR}, #{load,jdbcType=DOUBLE}, #{etime,jdbcType=VARCHAR}, 
+      #{isfree,jdbcType=VARCHAR}, #{company,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rg.Domain.Car">
+    insert into car
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pnumber != null">
+        Pnumber,
+      </if>
+      <if test="cowner != null">
+        Cowner,
+      </if>
+      <if test="tnumber != null">
+        Tnumber,
+      </if>
+      <if test="uyear != null">
+        Uyear,
+      </if>
+      <if test="load != null">
+        Load,
+      </if>
+      <if test="etime != null">
+        Etime,
+      </if>
+      <if test="isfree != null">
+        IsFree,
+      </if>
+      <if test="company != null">
+        Company,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pnumber != null">
+        #{pnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="cowner != null">
+        #{cowner,jdbcType=VARCHAR},
+      </if>
+      <if test="tnumber != null">
+        #{tnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="uyear != null">
+        #{uyear,jdbcType=VARCHAR},
+      </if>
+      <if test="load != null">
+        #{load,jdbcType=DOUBLE},
+      </if>
+      <if test="etime != null">
+        #{etime,jdbcType=VARCHAR},
+      </if>
+      <if test="isfree != null">
+        #{isfree,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        #{company,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rg.Domain.Car">
+    update car
+    <set>
+      <if test="cowner != null">
+        Cowner = #{cowner,jdbcType=VARCHAR},
+      </if>
+      <if test="tnumber != null">
+        Tnumber = #{tnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="uyear != null">
+        Uyear = #{uyear,jdbcType=VARCHAR},
+      </if>
+      <if test="load != null">
+        Load = #{load,jdbcType=DOUBLE},
+      </if>
+      <if test="etime != null">
+        Etime = #{etime,jdbcType=VARCHAR},
+      </if>
+      <if test="isfree != null">
+        IsFree = #{isfree,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        Company = #{company,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Pnumber = #{pnumber,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rg.Domain.Car">
+    update car
+    set Cowner = #{cowner,jdbcType=VARCHAR},
+      Tnumber = #{tnumber,jdbcType=VARCHAR},
+      Uyear = #{uyear,jdbcType=VARCHAR},
+      Load = #{load,jdbcType=DOUBLE},
+      Etime = #{etime,jdbcType=VARCHAR},
+      IsFree = #{isfree,jdbcType=VARCHAR},
+      Company = #{company,jdbcType=VARCHAR}
+    where Pnumber = #{pnumber,jdbcType=VARCHAR}
+  </update>
+</mapper>

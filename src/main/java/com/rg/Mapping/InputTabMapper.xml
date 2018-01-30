@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rg.IDao.InputTabMapper">
+  <resultMap id="BaseResultMap" type="com.rg.Domain.InputTab">
+    <result column="unit" jdbcType="VARCHAR" property="unit" />
+    <result column="time" jdbcType="VARCHAR" property="time" />
+    <result column="money" jdbcType="VARCHAR" property="money" />
+    <result column="reason" jdbcType="VARCHAR" property="reason" />
+    <result column="id" jdbcType="VARCHAR" property="id" />
+  </resultMap>
+  <insert id="insert" parameterType="com.rg.Domain.InputTab">
+    insert into inputtab (unit, time, money, 
+      reason, id)
+    values (#{unit,jdbcType=VARCHAR}, #{time,jdbcType=VARCHAR}, #{money,jdbcType=VARCHAR}, 
+      #{reason,jdbcType=VARCHAR}, #{id,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rg.Domain.InputTab">
+    insert into inputtab
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="unit != null">
+        unit,
+      </if>
+      <if test="time != null">
+        time,
+      </if>
+      <if test="money != null">
+        money,
+      </if>
+      <if test="reason != null">
+        reason,
+      </if>
+      <if test="id != null">
+        id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="unit != null">
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null">
+        #{money,jdbcType=VARCHAR},
+      </if>
+      <if test="reason != null">
+        #{reason,jdbcType=VARCHAR},
+      </if>
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

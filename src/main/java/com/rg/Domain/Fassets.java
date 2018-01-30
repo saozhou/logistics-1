@@ -28,6 +28,8 @@ public class Fassets {
     private String ustatus;
 
     private String campany;
+    
+    private String iseffective;
 
     public String getFcode() {
         return fcode;
@@ -140,4 +142,12 @@ public class Fassets {
     public void setCampany(String campany) {
         this.campany = campany == null ? null : campany.trim();
     }
+
+	public String getIseffective() {
+		return iseffective;
+	}
+
+	public void setIseffective(String iseffective) {
+		this.iseffective = iseffective;
+	}
 }

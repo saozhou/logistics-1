@@ -1,11 +1,16 @@
 package com.rg.Domain;
 
+/**
+ * 客户实体类
+ * @author Zhou
+ *
+ */
 public class Client {
-    private String cid;
+    private String id;
 
     private Integer category;
 
-    private String cname;
+    private String name;
 
     private Double credit;
 
@@ -17,77 +22,99 @@ public class Client {
 
     private String address;
 
-    private Integer ctype;
+    private Integer type;
 
-    public String getCid() {
-        return cid;
-    }
+    private String iseffective;
 
-    public void setCid(String cid) {
-        this.cid = cid == null ? null : cid.trim();
-    }
+    private String company;
 
-    public Integer getCategory() {
-        return category;
-    }
+	public String getId() {
+		return id;
+	}
 
-    public void setCategory(Integer category) {
-        this.category = category;
-    }
+	public void setId(String id) {
+		   this.id = id == null ? null : id.trim();
+	}
 
-    public String getCname() {
-        return cname;
-    }
+	public Integer getCategory() {
+		return category;
+	}
 
-    public void setCname(String cname) {
-        this.cname = cname == null ? null : cname.trim();
-    }
+	public void setCategory(Integer category) {
+		this.category = category;
+	}
 
-    public Double getCredit() {
-        return credit;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setCredit(Double credit) {
-        this.credit = credit;
-    }
+	public void setName(String name) {
+		 this.name = name == null ? null : name.trim();
+	}
 
-    public Double getLcredit() {
-        return lcredit;
-    }
+	public Double getCredit() {
+		return credit;
+	}
 
-    public void setLcredit(Double lcredit) {
-        this.lcredit = lcredit;
-    }
+	public void setCredit(Double credit) {
+		this.credit = credit;
+	}
 
-    public String getTnumber() {
-        return tnumber;
-    }
+	public Double getLcredit() {
+		return lcredit;
+	}
 
-    public void setTnumber(String tnumber) {
-        this.tnumber = tnumber == null ? null : tnumber.trim();
-    }
+	public void setLcredit(Double lcredit) {
+		this.lcredit = lcredit;
+	}
 
-    public String getPlace() {
-        return place;
-    }
+	public String getTnumber() {
+		return tnumber;
+	}
 
-    public void setPlace(String place) {
-        this.place = place == null ? null : place.trim();
-    }
+	public void setTnumber(String tnumber) {
+		 this.tnumber = tnumber == null ? null : tnumber.trim();
+	}
 
-    public String getAddress() {
-        return address;
-    }
+	public String getPlace() {
+		return place;
+	}
 
-    public void setAddress(String address) {
-        this.address = address == null ? null : address.trim();
-    }
+	public void setPlace(String place) {
+		 this.place = place == null ? null : place.trim();
+	}
 
-    public Integer getCtype() {
-        return ctype;
-    }
+	public String getAddress() {
+		return address;
+	}
 
-    public void setCtype(Integer ctype) {
-        this.ctype = ctype;
-    }
+	public void setAddress(String address) {
+		 this.address = address == null ? null : address.trim();
+	}
+
+	public Integer getType() {
+		return type;
+	}
+
+	public void setType(Integer type) {
+		this.type = type;
+	}
+
+	public String getIseffective() {
+		return iseffective;
+	}
+
+	public void setIseffective(String iseffective) {
+		 this.iseffective = iseffective == null ? null : iseffective.trim();
+	}
+
+	public String getCompany() {
+		return company;
+	}
+
+	public void setCompany(String company) {
+		 this.company = company == null ? null : company.trim();
+	}
+
+   
 }

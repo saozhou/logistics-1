@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rg.IDao.AstoreMapper">
+  <resultMap id="BaseResultMap" type="com.rg.Domain.Astore">
+    <id column="Aid" jdbcType="VARCHAR" property="aid" />
+    <result column="Aname" jdbcType="VARCHAR" property="aname" />
+    <result column="Spec" jdbcType="VARCHAR" property="spec" />
+    <result column="Atype" jdbcType="VARCHAR" property="atype" />
+    <result column="Abrand" jdbcType="VARCHAR" property="abrand" />
+    <result column="Packing" jdbcType="VARCHAR" property="packing" />
+    <result column="Uprice" jdbcType="DOUBLE" property="uprice" />
+    <result column="Amount" jdbcType="DOUBLE" property="amount" />
+    <result column="Wnumber" jdbcType="VARCHAR" property="wnumber" />
+    <result column="Unit" jdbcType="VARCHAR" property="unit" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Aid, Aname, Spec, Atype, Abrand, Packing, Uprice, Amount, Wnumber, Unit
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from astore
+    where Aid = #{aid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from astore
+    where Aid = #{aid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.rg.Domain.Astore">
+    insert into astore (Aid, Aname, Spec, 
+      Atype, Abrand, Packing, 
+      Uprice, Amount, Wnumber, 
+      Unit)
+    values (#{aid,jdbcType=VARCHAR}, #{aname,jdbcType=VARCHAR}, #{spec,jdbcType=VARCHAR}, 
+      #{atype,jdbcType=VARCHAR}, #{abrand,jdbcType=VARCHAR}, #{packing,jdbcType=VARCHAR}, 
+      #{uprice,jdbcType=DOUBLE}, #{amount,jdbcType=DOUBLE}, #{wnumber,jdbcType=VARCHAR}, 
+      #{unit,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rg.Domain.Astore">
+    insert into astore
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="aid != null">
+        Aid,
+      </if>
+      <if test="aname != null">
+        Aname,
+      </if>
+      <if test="spec != null">
+        Spec,
+      </if>
+      <if test="atype != null">
+        Atype,
+      </if>
+      <if test="abrand != null">
+        Abrand,
+      </if>
+      <if test="packing != null">
+        Packing,
+      </if>
+      <if test="uprice != null">
+        Uprice,
+      </if>
+      <if test="amount != null">
+        Amount,
+      </if>
+      <if test="wnumber != null">
+        Wnumber,
+      </if>
+      <if test="unit != null">
+        Unit,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="aid != null">
+        #{aid,jdbcType=VARCHAR},
+      </if>
+      <if test="aname != null">
+        #{aname,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null">
+        #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="atype != null">
+        #{atype,jdbcType=VARCHAR},
+      </if>
+      <if test="abrand != null">
+        #{abrand,jdbcType=VARCHAR},
+      </if>
+      <if test="packing != null">
+        #{packing,jdbcType=VARCHAR},
+      </if>
+      <if test="uprice != null">
+        #{uprice,jdbcType=DOUBLE},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=DOUBLE},
+      </if>
+      <if test="wnumber != null">
+        #{wnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null">
+        #{unit,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rg.Domain.Astore">
+    update astore
+    <set>
+      <if test="aname != null">
+        Aname = #{aname,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null">
+        Spec = #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="atype != null">
+        Atype = #{atype,jdbcType=VARCHAR},
+      </if>
+      <if test="abrand != null">
+        Abrand = #{abrand,jdbcType=VARCHAR},
+      </if>
+      <if test="packing != null">
+        Packing = #{packing,jdbcType=VARCHAR},
+      </if>
+      <if test="uprice != null">
+        Uprice = #{uprice,jdbcType=DOUBLE},
+      </if>
+      <if test="amount != null">
+        Amount = #{amount,jdbcType=DOUBLE},
+      </if>
+      <if test="wnumber != null">
+        Wnumber = #{wnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null">
+        Unit = #{unit,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Aid = #{aid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rg.Domain.Astore">
+    update astore
+    set Aname = #{aname,jdbcType=VARCHAR},
+      Spec = #{spec,jdbcType=VARCHAR},
+      Atype = #{atype,jdbcType=VARCHAR},
+      Abrand = #{abrand,jdbcType=VARCHAR},
+      Packing = #{packing,jdbcType=VARCHAR},
+      Uprice = #{uprice,jdbcType=DOUBLE},
+      Amount = #{amount,jdbcType=DOUBLE},
+      Wnumber = #{wnumber,jdbcType=VARCHAR},
+      Unit = #{unit,jdbcType=VARCHAR}
+    where Aid = #{aid,jdbcType=VARCHAR}
+  </update>
+</mapper>
