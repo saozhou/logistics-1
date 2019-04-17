@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link
+	href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
+	rel="stylesheet">
+<link rel="stylesheet" type="text/css"
+	href="js/src/js/jquery.notebook.css">
+<script type="text/javascript" src="js/src/js/libs/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/src/js/jquery.notebook.js"></script>
+</head>
+
+<body>  
+<div class="my-editor" id="edit"></div>
+<div><button onclick="submit()">提交</button></div>
+ </body>
+ 
+ <script type="text/javascript"> 
+$(document).ready(function(){
+    $('.my-editor').notebook();
+});
+$.fn.notebook.defaults = {
+  autoFocus: false,
+  placeholder: 'Your text here...',
+  mode: 'multiline', //多行或内嵌
+  modifiers: ['bold', 'italic', 'underline', 'h1', 'h2', 'ol', 'ul', 'anchor']
+};
+function submit(){
+	 alert($("#edit").html());  
+}
+</script>
+</html>
