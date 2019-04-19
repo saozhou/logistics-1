@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>tableFrame_simple</title>
+<style type="text/css">
+body{
+width:auto;
+height:auto;
+padding:0;
+margin:20px 0;
+font-size:12px;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+}
+ul{
+clear:both;
+padding:0;
+margin:0;
+list-style:none;
+}
+#tableFrame{
+width:875px; /*需要修改*/
+height:auto;
+border-top:#000 1px solid;
+border-left:#000 1px solid;
+padding:0;
+margin:0 auto;
+font-size:12px;
+}
+#tableFrame:after {
+content: ".";
+display: block;
+height: 0;
+clear: both;
+visibility: hidden;
+}
+li{
+float:left;
+display: block;
+width:120px; /*需要修改*/
+height:auto;
+padding:2px;
+margin:0;
+border-right:#000 1px solid;
+border-bottom:#000 1px solid;
+line-height:16px;
+color:000;
+}
+
+/* 表格标题*/
+#tableFrameTitle ul{}
+#tableFrameTitle ul li{
+background:gray;
+text-align:center;
+color:#fff;
+}
+
+/* 表格内容*/
+#tableCase ul{}
+#tableCase ul li{}
+
+/* 单个表格特定样式*/
+.tableCaseThree{color:#329A02;}
+.tableCaseFive{color:#f00;}
+.tableCaseSeven{color:#f00;}
+</style>
+</head>
+
+<body>
+<div id="tableFrame">
+    <div id="tableFrameTitle">
+        <ul>
+            <li>ID</li>
+            <li>当日排名</li>
+            <li>排名变化趋势</li>
+            <li>一周平均排名</li>
+            <li>排名变化趋势</li>
+            <li>一月平均排名</li>
+            <li>排名变化趋势</li>
+        </ul>
+    </div>
+    <div id="tableCase">
+    <!--此处开始循环 -->
+        <ul>
+            <li class="tableCaseOne">0001</li>
+            <li class="tableCaseTwo">1234</li>
+            <li class="tableCaseThree">↑ 200</li>
+            <li class="tableCaseFour">1856</li>
+            <li class="tableCaseFive">↓ 56</li>
+            <li class="tableCaseSix">1650</li>
+            <li class="tableCaseSeven">↓ 156</li>
+        </ul>
+    <!--到此循环结束 -->
+    <ul>
+            <li class="tableCaseOne">0002</li>
+            <li class="tableCaseTwo">1234</li>
+            <li class="tableCaseThree">↑ 200</li>
+            <li class="tableCaseFour">1856</li>
+            <li class="tableCaseFive">↓ 56</li>
+            <li class="tableCaseSix">1650</li>
+            <li class="tableCaseSeven">↓ 156</li>
+        </ul>
+        <ul>
+            <li class="tableCaseOne">0003</li>
+            <li class="tableCaseTwo">1234</li>
+            <li class="tableCaseThree">↑ 200</li>
+            <li class="tableCaseFour">1856</li>
+            <li class="tableCaseFive">↓ 56</li>
+            <li class="tableCaseSix">1650</li>
+            <li class="tableCaseSeven">↓ 156</li>
+        </ul>
+        <ul>
+            <li class="tableCaseOne">0004</li>
+            <li class="tableCaseTwo">1234</li>
+            <li class="tableCaseThree">↑ 200</li>
+            <li class="tableCaseFour">1856</li>
+            <li class="tableCaseFive">↓ 56</li>
+            <li class="tableCaseSix">1650</li>
+            <li class="tableCaseSeven">↓ 156</li>
+        </ul>
+        <ul>
+            <li class="tableCaseOne">0005</li>
+            <li class="tableCaseTwo">1234</li>
+            <li class="tableCaseThree">↑ 200</li>
+            <li class="tableCaseFour">1856</li>
+            <li class="tableCaseFive">↓ 56</li>
+            <li class="tableCaseSix">1650</li>
+            <li class="tableCaseSeven">↓ 156</li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

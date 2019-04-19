@@ -11,10 +11,166 @@
 <script type="text/javascript" src="js/src/js/libs/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="js/src/js/jquery.notebook.js"></script>
 </head>
+<style>
 
+#edit{
+text-align:center;
+border:2px solid #a1a1a1;
+padding:10px 40px; 
+background:#dddddd;
+width:400px;
+height:500px;
+border-radius:25px;
+-moz-border-radius:25px; /* 老的 Firefox */
+}
+#input1{
+font-family:Simsun;
+font-size:1.0em;  
+height:1.5em; 
+border-radius:10px;  
+border:1px solid #c8cccf; 
+  
+text-align:center;
+display:block;
+}
+
+#button1{
+
+width: 86px;/*按钮控件的宽度*/
+
+text-align: center;/*按钮控件中文本居中显示*/
+
+line-height: 100%;/*用百分比设置行高*/
+
+padding-top: 0.5em;/*文本顶部的内边距*/
+
+padding-right: 2em;/*文本右侧的内边距*/
+
+padding-bottom: 0.55em;/*文本底部的内边距*/
+
+padding-left: 2em;/*文本左侧的内边距*/
+
+font-family: "Arial Black", Gadget, sans-serif;/*字体*/
+
+font-size: 14px;/*字体大小*/
+
+font-style: normal;/*字体样式*/
+
+font-variant: normal;/*小写字母*/
+
+font-weight: normal;/*文本不需要加粗*/
+
+text-decoration: none;/*文本不需要下划线等*/
+
+margin-top: 0px;/*外边框的距离*/
+
+margin-right: 2px;/*外边框的距离*/
+
+margin-bottom: 0px;/*外边框的距离*/
+
+margin-left: 2px;/*外边框的距离*/
+
+vertical-align: text-bottom;/*图像放在文本下面*/
+
+display: inline-block;/*段落内生出内框*/
+
+cursor: pointer;/*鼠标的形状*/
+
+zoom:1;
+
+outline-width:medium;/*整个轮廓的宽度*/
+
+outline-color:inherit;/*轮廓的颜色*/
+
+font-size-adjust:none;
+
+font-stretch:normal;
+
+border-top-left-radius:0.5em;/*圆角边框弧度*/
+
+border-top-right-radius:0.5em;/*圆角边框弧度*/
+
+border-bottom-left-radius:0.5em;/*圆角边框弧度*/
+
+border-bottom-right-radius:0.5em;/*圆角边框弧度*/
+
+box-shadow:0px 1px 2px rgba(0,0,0,0.2);/*给按钮增加阴影*/
+
+color:#fefee9;/*设置文本的颜色*/
+ 
+ 
+border-top-width:1px;/*边框的粗细*/
+
+border-right-width:1px;/*边框的粗细*/
+
+border-bottom-width:1px;/*边框的粗细*/
+
+border-left-width:1px;/*边框的粗细*/
+
+border-top-style:solid;/*边框的样式*/
+
+border-right-style:solid;/*边框的样式*/
+
+border-bottom-style:solid;/*边框的样式*/
+
+border-left-style:solid;/*边框的样式*/
+
+background-image:none;/*背景图片*/
+
+background-attachment:scroll;/*背景图片是否移动*/
+
+background-repeat:repeat;/*允许重复*/
+
+background-position-x:0%;/*背景的x轴坐标*/
+
+background-position-y:0%;/*背景的y轴坐标*/
+
+background-size:auto;/*背景图片的尺寸*/
+
+background-origin:padding-box;/*背景图像相对于内边距框来定位*/
+
+background-clip:padding-box;/*背景被裁剪到内边距框*/
+
+background-color:#0fb6e4;/*背景颜色*/
+
+}
+
+     
+        .fileop{
+            width:105px;
+            height:30px;
+            opacity:0;/*透明化  */
+            float:left;
+            z-index:3;
+            position:absolute;
+            left:40px;/*将原来的选择文件的按钮设置透明化，在不断的移动，使之与按钮重合  */
+        }
+         .xzwjbtn{
+             float:left;
+             border-radius:3px;
+             height:25px;
+             line-height:36px;
+             margin-left:10px;
+             background-color:#3379d8;
+             cursor:pointer;
+             align:center;
+             width:100px;
+         } 
+ 
+
+
+
+
+</style>
 <body>  
 <div class="my-editor" id="edit"></div>
-<div><button onclick="submit()">提交</button></div>
+<div><button id="button1" onclick="submit()">提交</button></div>
+<div><input type="text"  id="input1"  placeholder="请输入用户名"></div>
+<div class="selfile" style="margin-top:30px;margin-left:31px;">
+      <input type="file" id="fileop" name="file" multiple="true" class="fileop" />
+      <a id="xzwjbtn" href="javascript:void(0)" class="easyui-linkbutton xzwjbtn">选择文件</a>
+      <input type="text" id="filete" name="filename" class="easyui-validatebox xzwj" style="width:180px;height:25px;margin-left:10px;padding-left:5px;" readonly="true"/>
+  </div>
  </body>
  
  <script type="text/javascript"> 
@@ -31,4 +187,19 @@ function submit(){
 	 alert($("#edit").html());  
 }
 </script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#fileop").change(function(){
+            var selname=$(this).val();
+            var str="fakepath";
+            var hhstr="";
+            if(selname.indexOf(str)>=0){
+                hhstr=selname.substring(12,selname.length);
+                $("#filete").val(hhstr);
+            }else{
+                $("#filete").val(selname);
+            }
+        });
+    });
+    </script>
 </html>

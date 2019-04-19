@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>选择文件</title>
+    <style>
+      .u-btn-selectfile{
+        background: #eee;
+        border: none;
+        /*color: #ffffff;*/
+        font-weight: bold;
+      }
+      .u-btn-selectfile:focus{
+        outline: 0;
+      }
+      .u-btn-selectfile span{
+        position: relative;
+        top: -3px;
+      }
+    </style>
+  </head>
+  <body>
+    <span>选择文件：</span>
+    <input type="text" size="20" name="upfile" id="upfile" class="u-input-version"/>
+    <button type="button" onclick="path.click()" class="u-btn-selectfile">
+      <span>...</span>
+    </bttton>
+    <input type="file" id="path" style="display:none" onchange="upfile.value=this.value"/>
+  </body>
+</html>
