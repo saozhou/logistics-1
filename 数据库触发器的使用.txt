@@ -1,0 +1,14 @@
+触发器的使用是在，数据库表数据发生改变时要对数据进行备份，或者是要对其他表的数据进行操作时才使用。触发器的操作时间可以才表数据发生改变前，也可一发生在表数据发生改变后。
+但是个人建议在开发中少用触发器，详细情况访问以下网址 
+https://blogs.oracle.com/oraclemagazine/the-trouble-with-triggers
+触发器分文三个部分
+头：声名触发器所作用的表及有效的动作 如 create trigger xxx before/after update/delete/insert on xxx表
+体：申明一些变量对表数据的变化进行记录，多条数据可采用游标
+DECLARE V_TYPE C_AUTH_GLOBAL_ROLE_RECORD_T.method_type%TYPE;
+BEGIN
+ IF UPDATING THEN
+  V_TYPE := 'UPDATE';
+ ELSIF DELETING THEN
+  V_TYPE := 'DELETE';
+ END IF;
+尾：对数据的内容进行最后的处理，插入其他表或者删除其他表的数据
